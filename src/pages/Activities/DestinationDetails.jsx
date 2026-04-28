@@ -1,5 +1,7 @@
+"use client"
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 import { getActivities, getCategoriesByDestination } from "../../api/activityApi";
 
 const DestinationDetails = () => {
@@ -76,7 +78,7 @@ const DestinationDetails = () => {
           {activities.map((act) => (
             <Link
               key={act._id}
-              to={`/la/activity/${act._id}`}
+              href={`/la/activity/${act._id}`}
               className="block bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden"
             >
               {act.bannerImage && (

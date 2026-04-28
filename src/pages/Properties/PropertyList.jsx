@@ -1,9 +1,7 @@
-
-
-
+"use client"
 import React, { useEffect, useState } from "react";
 import { getProperties, deleteProperty } from "../../api/propertyApi";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const PropertyList = () => {
   const [properties, setProperties] = useState([]);
@@ -29,7 +27,7 @@ const PropertyList = () => {
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-semibold">Properties</h2>
         <Link
-          to="/dashbord/rooms/add"
+          href="/dashbord/rooms/add"
           className="bg-blue-600 text-white px-4 py-2 rounded"
         >
           + Add New
@@ -71,7 +69,7 @@ const PropertyList = () => {
              
               <div className="flex justify-between mt-3">
                 <Link
-                  to={`/dashbord/properties/edit/${r._id}`}
+                  href={`/dashbord/properties/edit/${r._id}`}
                   className="text-blue-600 hover:underline"
                 >
                   Edit
@@ -84,7 +82,7 @@ const PropertyList = () => {
                 </button>
               </div>
                             <Link
-                to={`/dashbord/properties/${r._id}`}
+                href={`/dashbord/properties/${r._id}`}
                 className="text-blue-600 mt-2 inline-block"
               >
                 View Details →

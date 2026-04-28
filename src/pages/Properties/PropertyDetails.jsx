@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 import axios from "axios";
 
 const PropertyDetails = () => {
@@ -25,7 +26,7 @@ const PropertyDetails = () => {
           <img key={i} src={img} className="rounded-lg h-32 object-cover" />
         ))}
       </div>
-      <Link to="/dashbord/rooms/all" className="text-blue-600 mt-4 block">← Back to List</Link>
+      <Link href="/dashbord/rooms/all" className="text-blue-600 mt-4 block">← Back to List</Link>
     </div>
   );
 };

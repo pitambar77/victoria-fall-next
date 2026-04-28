@@ -1,8 +1,8 @@
-
-
+"use client";
 
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 import axios from "axios";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import Button from "../../components/Button";
@@ -49,7 +49,7 @@ export default function ModalGallery() {
         </h2>
 
         {/* Desktop button (right side) */}
-        <Link to='/properties' className="hidden md:block hd text-sm font-medium text-[#4d4a2f] hover:underline">
+        <Link href='/properties' className="hidden md:block hd text-sm font-medium text-[#4d4a2f] hover:underline">
           VIEW ACCOMMODATION →
         </Link>
       </div>

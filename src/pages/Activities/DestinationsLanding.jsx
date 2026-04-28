@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getDestinations } from "../../api/destinationApi";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const DestinationsLanding = () => {
   const [destinations, setDestinations] = useState([]);
@@ -20,7 +20,7 @@ const DestinationsLanding = () => {
         {destinations.map((dest) => (
           <Link
             key={dest._id}
-            to={`/la/destination/${dest._id}`}
+            href={`/la/destination/${dest._id}`}
             className="block bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition"
           >
             <img

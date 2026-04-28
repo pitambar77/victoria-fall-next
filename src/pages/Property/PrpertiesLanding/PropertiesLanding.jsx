@@ -5,7 +5,6 @@ import PropertiesCards from "./PropertiesCards";
 import Overview from "../../../components/Overview";
 import TestimonialSection from "../../../components/TestimonialSection";
 import Awards from "../../../components/Awards";
-import propertyl from '../../../assets/propertyl.webp'
 
 
 const PropertiesLanding = () => {
@@ -16,7 +15,7 @@ const PropertiesLanding = () => {
       <Banner
         title="Properties "
         subtitle="Elite African Home Care "
-        imageUrl={propertyl}
+        imageUrl="/images/propertyl.webp"
       />
       <Overview
         title="Private sunset cruise"

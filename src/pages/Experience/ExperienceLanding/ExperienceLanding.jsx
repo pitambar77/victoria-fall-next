@@ -6,7 +6,7 @@ import PopularExperiences from "./PopularExperiences";
 import WhyBookWithUs from "./WhyBookWithUs";
 import Testimonial from "../../../components/TestimonialSection";
 import Awards from "../../../components/Awards";
-import experiencel from "../../../assets/experience.webp";
+
 
 const ExperienceLanding = () => {
   return (
@@ -14,7 +14,7 @@ const ExperienceLanding = () => {
       <Banner
         title="Experience"
         subtitle="Explore Africa’s Iconic Experiences"
-        imageUrl={experiencel}
+        imageUrl='/images/experience.webp'
       />
       <Overview
         title="Timeless journeys through Southern Africa’s wonders"
