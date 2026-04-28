@@ -1,0 +1,31 @@
+export const legalFields = {
+  "Property Owner": [
+    { name: "licenseNo", label: "Business License Number", type: "text", required: true },
+    { name: "taxId", label: "GST / Tax ID", type: "text", required: true },
+    { name: "licenseFile", label: "Upload Business License", type: "file", required: true },
+    { name: "propertyOwnershipProof", label: "Property Ownership Proof (PDF/Image)", type: "file", required: true },
+    { name: "bankName", label: "Bank Name", type: "text", required: true },
+    { name: "bankAccount", label: "Bank Account Number", type: "text", required: true },
+    { name: "ifscCode", label: "IFSC / SWIFT Code", type: "text", required: true },
+    { name: "cancelledCheque", label: "Cancelled Cheque / Bank Proof", type: "file" },
+  ],
+  "Restaurant Owner": [
+    { name: "licenseNo", label: "Trade License Number", type: "text", required: true },
+    { name: "fssaiNumber", label: "FSSAI / Food License Number", type: "text", required: true },
+    { name: "taxId", label: "GST / Tax ID", type: "text", required: true },
+    { name: "licenseFile", label: "Upload Trade / Food License", type: "file", required: true },
+    { name: "bankName", label: "Bank Name", type: "text", required: true },
+    { name: "bankAccount", label: "Bank Account Number", type: "text", required: true },
+    { name: "ifscCode", label: "IFSC / SWIFT Code", type: "text", required: true },
+    { name: "cancelledCheque", label: "Cancelled Cheque / Bank Proof", type: "file" },
+  ],
+  "Activity/Experience Provider": [
+    { name: "licenseNo", label: "Business License Number", type: "text", required: true },
+    { name: "insuranceProof", label: "Public Liability Insurance Proof", type: "file", required: true },
+    { name: "taxId", label: "GST / Tax ID", type: "text", required: true },
+    { name: "safetyCertificate", label: "Safety Compliance Certificate", type: "file" },
+    { name: "bankName", label: "Bank Name", type: "text", required: true },
+    { name: "bankAccount", label: "Bank Account Number", type: "text", required: true },
+    { name: "ifscCode", label: "IFSC / SWIFT Code", type: "text", required: true },
+  ],
+};
