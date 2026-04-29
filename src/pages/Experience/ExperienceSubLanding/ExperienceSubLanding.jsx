@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Banner from "../../../components/Banner";
 import Overview from "../../../components/Overview";
 import TabSection from "./TabSection";
