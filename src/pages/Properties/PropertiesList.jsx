@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -192,3 +190,5 @@ export default function PropertiesList() {
     </div>
   );
 }
+
+

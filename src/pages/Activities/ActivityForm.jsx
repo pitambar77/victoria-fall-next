@@ -89,10 +89,6 @@ const ActivityForm = () => {
           overviewImage: null,
           bannerImage: null,
           galleryImages: [],
-
-          // banner: data.banner?.length
-          //   ? data.banner.map((b) => ({ title: b.title, subTitle: b.subTitle }))
-          //   : [{ title: "", subTitle: "" }],
           banner: [normalizedBanner],
 
           overviewInfo: data.overviewInfo?.length
