@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState, useEffect } from "react";
 import {
@@ -48,7 +48,8 @@ const ActivityForm = () => {
     importantInfo: [{ type: "paragraph", content: "" }],
   });
 
-  const { id } = useParams();
+  const params = useParams();
+  const id = params?.id;
   const router = useRouter();
   const isEdit = Boolean(id);
 
@@ -127,7 +128,9 @@ const ActivityForm = () => {
     if (!formData.destination) return;
 
     axios
-      .get(`http://victoria-fall-backend.manoramaseoservice.com/api/categories/${formData.destination}`)
+      .get(
+        `http://victoria-fall-backend.manoramaseoservice.com/api/categories/${formData.destination}`,
+      )
       .then((res) => setCategories(res.data))
       .catch(console.error);
   }, [formData.destination]);
@@ -253,7 +256,7 @@ const ActivityForm = () => {
 
       const res = await axios.post(
         `http://victoria-fall-backend.manoramaseoservice.com/api/activities/${id}/gallery-image`,
-        data
+        data,
       );
 
       // update gallery preview
@@ -270,7 +273,7 @@ const ActivityForm = () => {
     try {
       await axios.put(
         `http://victoria-fall-backend.manoramaseoservice.com/api/activities/${id}/gallery-image`,
-        { image }
+        { image },
       );
 
       setPreviewGallery((prev) => prev.filter((img) => img !== image));
@@ -279,7 +282,6 @@ const ActivityForm = () => {
       alert("Failed to remove image");
     }
   };
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -307,10 +309,7 @@ const ActivityForm = () => {
 
   /* ================= UI ================= */
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="p-6 shadow-sm max-w-5xl mx-auto"
-    >
+    <form onSubmit={handleSubmit} className="p-6 shadow-sm max-w-5xl mx-auto">
       <h2 className="text-xl font-semibold mb-4">Create Activity</h2>
 
       <div className="grid grid-cols-2 gap-4">
@@ -428,10 +427,13 @@ const ActivityForm = () => {
       </div>
 
       {/* OVERVIEW INFO */}
-      <div >
+      <div>
         <h3 className="mt-6 font-semibold">Overview Sections</h3>
         {formData.overviewInfo.map((sec, i) => (
-          <div key={i} className="border border-gray-300 rounded-md p-3 outline-none p-3 mt-2 rounded">
+          <div
+            key={i}
+            className="border border-gray-300 rounded-md p-3 outline-none p-3 mt-2 rounded"
+          >
             <input
               value={sec.title}
               onChange={(e) => handleOverviewTitleChange(i, e.target.value)}
@@ -534,16 +536,16 @@ const ActivityForm = () => {
       </div>
 
       <div className="mt-4">
-  <label className="block text-sm font-medium">Book Now URL</label>
-  <input
-    type="url"
-    name="bookNowUrl"
-    value={formData.bookNowUrl}
-    onChange={handleChange}
-    placeholder="https://booking-link.com"
-    className="w-full border border-gray-300 rounded-md p-3 outline-none"
-  />
-</div>
+        <label className="block text-sm font-medium">Book Now URL</label>
+        <input
+          type="url"
+          name="bookNowUrl"
+          value={formData.bookNowUrl}
+          onChange={handleChange}
+          placeholder="https://booking-link.com"
+          className="w-full border border-gray-300 rounded-md p-3 outline-none"
+        />
+      </div>
 
       {/* ✅ Gallery Images */}
       <div className=" mt-4">
@@ -707,95 +709,99 @@ const ActivityForm = () => {
       </div> */}
 
       {/* IMPORTANT INFO (CONTENT BLOCKS) */}
-<div className="mt-6">
-  <h3 className="font-semibold mb-2">Important Info</h3>
+      <div className="mt-6">
+        <h3 className="font-semibold mb-2">Important Info</h3>
 
-  {formData.importantInfo.map((block, i) => (
-    <div key={i} className="border border-gray-300 rounded-md p-3 outline-none p-3 mb-3 rounded">
-      {/* TYPE SELECT */}
-      <select
-        value={block.type}
-        onChange={(e) => {
-          const updated = [...formData.importantInfo];
-          updated[i].type = e.target.value;
-          updated[i].content = e.target.value === "list" ? [""] : "";
-          setFormData({ ...formData, importantInfo: updated });
-        }}
-        className="border border-gray-300 rounded-md p-3 outline-none p-2 mb-2 w-full"
-      >
-        <option value="header">Header</option>
-        <option value="paragraph">Paragraph</option>
-        <option value="list">List</option>
-      </select>
-
-      {/* CONTENT */}
-      {block.type === "list" ? (
-        block.content.map((item, idx) => (
-          <div key={idx} className="flex gap-2 mb-1">
-            <input
-              value={item}
+        {formData.importantInfo.map((block, i) => (
+          <div
+            key={i}
+            className="border border-gray-300 rounded-md p-3 outline-none p-3 mb-3 rounded"
+          >
+            {/* TYPE SELECT */}
+            <select
+              value={block.type}
               onChange={(e) => {
                 const updated = [...formData.importantInfo];
-                updated[i].content[idx] = e.target.value;
+                updated[i].type = e.target.value;
+                updated[i].content = e.target.value === "list" ? [""] : "";
                 setFormData({ ...formData, importantInfo: updated });
               }}
-              className="border border-gray-300 rounded-md p-3 outline-none p-2 w-full"
-            />
+              className="border border-gray-300 rounded-md p-3 outline-none p-2 mb-2 w-full"
+            >
+              <option value="header">Header</option>
+              <option value="paragraph">Paragraph</option>
+              <option value="list">List</option>
+            </select>
+
+            {/* CONTENT */}
+            {block.type === "list" ? (
+              block.content.map((item, idx) => (
+                <div key={idx} className="flex gap-2 mb-1">
+                  <input
+                    value={item}
+                    onChange={(e) => {
+                      const updated = [...formData.importantInfo];
+                      updated[i].content[idx] = e.target.value;
+                      setFormData({ ...formData, importantInfo: updated });
+                    }}
+                    className="border border-gray-300 rounded-md p-3 outline-none p-2 w-full"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const updated = [...formData.importantInfo];
+                      updated[i].content.splice(idx, 1);
+                      setFormData({ ...formData, importantInfo: updated });
+                    }}
+                    className="text-red-500"
+                  >
+                    ✕
+                  </button>
+                </div>
+              ))
+            ) : (
+              <textarea
+                value={block.content}
+                onChange={(e) => {
+                  const updated = [...formData.importantInfo];
+                  updated[i].content = e.target.value;
+                  setFormData({ ...formData, importantInfo: updated });
+                }}
+                className="border border-gray-300 rounded-md p-3 outline-none p-2 w-full"
+              />
+            )}
+
             <button
               type="button"
               onClick={() => {
-                const updated = [...formData.importantInfo];
-                updated[i].content.splice(idx, 1);
+                const updated = formData.importantInfo.filter(
+                  (_, idx) => idx !== i,
+                );
                 setFormData({ ...formData, importantInfo: updated });
               }}
-              className="text-red-500"
+              className="text-red-600 text-sm mt-2"
             >
-              ✕
+              Remove Block
             </button>
           </div>
-        ))
-      ) : (
-        <textarea
-          value={block.content}
-          onChange={(e) => {
-            const updated = [...formData.importantInfo];
-            updated[i].content = e.target.value;
-            setFormData({ ...formData, importantInfo: updated });
-          }}
-          className="border border-gray-300 rounded-md p-3 outline-none p-2 w-full"
-        />
-      )}
+        ))}
 
-      <button
-        type="button"
-        onClick={() => {
-          const updated = formData.importantInfo.filter((_, idx) => idx !== i);
-          setFormData({ ...formData, importantInfo: updated });
-        }}
-        className="text-red-600 text-sm mt-2"
-      >
-        Remove Block
-      </button>
-    </div>
-  ))}
-
-  <button
-    type="button"
-    onClick={() =>
-      setFormData({
-        ...formData,
-        importantInfo: [
-          ...formData.importantInfo,
-          { type: "paragraph", content: "" },
-        ],
-      })
-    }
-    className="text-blue-600 text-sm"
-  >
-    + Add Block
-  </button>
-</div>
-
+        <button
+          type="button"
+          onClick={() =>
+            setFormData({
+              ...formData,
+              importantInfo: [
+                ...formData.importantInfo,
+                { type: "paragraph", content: "" },
+              ],
+            })
+          }
+          className="text-blue-600 text-sm"
+        >
+          + Add Block
+        </button>
+      </div>
 
       {/* <button
         type="submit"
