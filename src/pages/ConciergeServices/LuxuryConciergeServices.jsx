@@ -31,7 +31,6 @@ const LuxuryConciergeServices = () => {
     staleTime: 1000 * 60 * 10,
   });
 
-  // show skeleton or loader
   if (isLoading) {
     return (
       <div className="h-[80vh] flex items-center justify-center">
@@ -72,7 +71,7 @@ const LuxuryConciergeServices = () => {
         </Button>
       </div>
 
-      {/* destination based services */}
+     
       {destination && (
         <ExperienceServices destinationId={destination._id} />
       )}
