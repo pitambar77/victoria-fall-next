@@ -3,26 +3,25 @@ import { Routes, Route } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import Dashbord from "../components/Dashbord";
 import AllFacilities from "../components/AllFacilities";
-import PropertyForm from "../pages/Properties/PropertyForm";
-import PropertyList from "../pages/Properties/PropertyList";
-import PropertyDetails from "../pages/Properties/PropertyDetails";
-import RestaurantList from "../pages/Restaurants/RestaurantList";
-import RestaurantForm from "../pages/Restaurants/RestaurantForm";
-import RestaurantDetails from "../pages/Restaurants/RestaurantDetails";
-import ActivityList from "../pages/Activities/ActivityList";
-import ActivityForm from "../pages/Activities/ActivityForm";
-import ActivityDetails from "../pages/Activities/ActivityDetails";
-import DestinationForm from "../pages/Activities/DestinationForm";
-import DestinationList from "../pages/Activities/DestinationList";
-import CategoryList from "../pages/Activities/CategoryList";
-import CategoryForm from "../pages/Activities/CategoryForm";
+import PropertyForm from "../Pages/Properties/PropertyForm";
+import PropertyList from "../Pages/Properties/PropertyList";
+import PropertyDetails from "../Pages/Properties/PropertyDetails";
+import RestaurantList from "../Pages/Restaurants/RestaurantList";
+import RestaurantForm from "../Pages/Restaurants/RestaurantForm";
+import RestaurantDetails from "../Pages/Restaurants/RestaurantDetails";
+import ActivityList from "../Pages/Activities/ActivityList";
+import ActivityForm from "../Pages/Activities/ActivityForm";
+import ActivityDetails from "../Pages/Activities/ActivityDetails";
+import DestinationForm from "../Pages/Activities/DestinationForm";
+import DestinationList from "../Pages/Activities/DestinationList";
+import CategoryList from "../Pages/Activities/CategoryList";
+import CategoryForm from "../Pages/Activities/CategoryForm";
 import BookingPropertyAdmin from "../components/BookingPropertyAdmin";
 import BookingsAdmin from "../components/BookingsAdmin";
 import BookingRestaurantAdmin from "../components/BookingRestaurantAdmin";
-import CreateProperty from "../pages/Admin/CreateProperty";
-import PropertiesList from "../pages/Properties/PropertiesList";
+import CreateProperty from "../Pages/Admin/CreateProperty";
+import PropertiesList from "../Pages/Properties/PropertiesList";
 import EditProperty from "./properties/EditProperty";
-
 
 const DashboardLayout = () => {
   return (
@@ -40,7 +39,6 @@ const DashboardLayout = () => {
               alt="user"
               className="w-9 h-9 rounded-full"
             />
-          
           </div>
         </header>
 
@@ -50,9 +48,9 @@ const DashboardLayout = () => {
             <Route path="/" element={<Dashbord />} />
             {/* <Route path="rooms/all" element={<PropertyList />} />
             <Route path="rooms/add" element={<PropertyForm />} /> */}
-             <Route path = "cp" element={<CreateProperty/>}/>
-              <Route path="propt" element={<PropertiesList/>}/>
-              <Route path="propt/:slug" element={<EditProperty/>}/>
+            <Route path="cp" element={<CreateProperty />} />
+            <Route path="propt" element={<PropertiesList />} />
+            <Route path="propt/:slug" element={<EditProperty />} />
             {/* <Route path="properties/edit/:id" element={<PropertyForm />} /> */}
             {/* <Route path="properties/:id" element={<PropertyDetails />} /> */}
             <Route path="restaurants/all" element={<RestaurantList />} />
@@ -79,7 +77,6 @@ const DashboardLayout = () => {
               element={<BookingRestaurantAdmin />}
             />
             <Route path="facilities" element={<AllFacilities />} />
-           
           </Routes>
         </main>
       </div>

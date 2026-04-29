@@ -1,5 +1,4 @@
-import CreateProperty from "@/pages/Admin/CreateProperty";
-
+import CreateProperty from "@/Pages/Admin/CreateProperty";
 
 export default function Page() {
   return <CreateProperty />;

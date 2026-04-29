@@ -1,5 +1,5 @@
 import React from "react";
-import MapPicker from "../../pages/Property/PrpertiesLanding/MapPicker";
+import MapPicker from "../../Pages/Property/PrpertiesLanding/MapPicker";
 
 export default function PropertyBasicForm({
   property,
@@ -132,7 +132,7 @@ export default function PropertyBasicForm({
 
       {/* SLEEPS */}
       <input
-      name="sleeps"
+        name="sleeps"
         className={`w-full border rounded-md p-3 outline-none
   ${
     errors?.sleeps
@@ -151,7 +151,7 @@ export default function PropertyBasicForm({
       {/* GUEST */}
       <input
         name="guest"
-               className={`w-full border rounded-md p-3 outline-none
+        className={`w-full border rounded-md p-3 outline-none
   ${
     errors?.guest
       ? "border-red-500"

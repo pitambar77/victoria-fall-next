@@ -1,5 +1,4 @@
-import OwnersApplication from "@/pages/OwnersApplication/OwnersApplication";
-
+import OwnersApplication from "@/Pages/OwnersApplication/OwnersApplication";
 
 export default function Page() {
   return <OwnersApplication />;

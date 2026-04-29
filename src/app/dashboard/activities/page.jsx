@@ -1,4 +1,4 @@
-import ActivityList from "@/pages/Activities/ActivityList";
+import ActivityList from "@/Pages/Activities/ActivityList";
 
 export default function Page() {
   return <ActivityList />;

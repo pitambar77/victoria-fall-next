@@ -1,10 +1,9 @@
-
 import React from "react";
 // import Button from "./Button";
-import Overview from "../pages/Home/Overview";
-import MemoriesSection from "../pages/Home/MemoriesSection";
-import ConciergeServices from "../pages/Home/ConciergeServices";
-import ExperiencesSection from "../pages/Home/ExperiencesSection";
+import Overview from "../Pages/Home/Overview";
+import MemoriesSection from "../Pages/Home/MemoriesSection";
+import ConciergeServices from "../Pages/Home/ConciergeServices";
+import ExperiencesSection from "../Pages/Home/ExperiencesSection";
 import TestimonialSection from "./TestimonialSection";
 import Banner from "../components/Banner";
 import Awards from "./Awards";
@@ -32,10 +31,10 @@ const Hero = () => {
         }
       />
       <ExperiencesSection />
-     <TestimonialSection />
-    <Awards />
+      <TestimonialSection />
+      <Awards />
       <Customize />
-      <JoinClubSection /> 
+      <JoinClubSection />
 
       <Map />
     </>

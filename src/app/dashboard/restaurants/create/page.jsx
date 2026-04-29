@@ -1,6 +1,5 @@
-import RestaurantForm from "@/pages/Restaurants/RestaurantForm";
-
+import RestaurantForm from "@/Pages/Restaurants/RestaurantForm";
 
 export default function Page() {
-  return <RestaurantForm  />;
+  return <RestaurantForm />;
 }

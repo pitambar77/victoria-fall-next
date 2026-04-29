@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState, useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
@@ -8,9 +8,9 @@ import {
   createRestaurant,
   getRestaurant,
   updateRestaurant,
-} from "../../api/restaurantApi";
+} from "../../api/restaurantApi.js";
 
-import MenuManager from "../../components/MenuManager";
+import MenuManager from "../../components/MenuManager.jsx";
 
 const RestaurantForm = () => {
   const [formData, setFormData] = useState({
@@ -36,7 +36,7 @@ const RestaurantForm = () => {
   const [previewGallery, setPreviewGallery] = useState([]);
   const [galleryUploading, setGalleryUploading] = useState(false);
 
- const router = useRouter();
+  const router = useRouter();
   const { id } = useParams();
   const isEdit = Boolean(id);
 

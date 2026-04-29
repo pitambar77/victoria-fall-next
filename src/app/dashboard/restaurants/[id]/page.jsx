@@ -1,8 +1,6 @@
-import RestaurantForm from "@/pages/Restaurants/RestaurantForm";
-
-
+import RestaurantForm from "@/Pages/Restaurants/RestaurantForm";
 
 export default async function Page({ params }) {
-    const {id} = await params
+  const { id } = await params;
   return <RestaurantForm id={id} />;
 }

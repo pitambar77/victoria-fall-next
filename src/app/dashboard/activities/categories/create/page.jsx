@@ -1,6 +1,5 @@
-import CategoryForm from "@/pages/Activities/CategoryForm";
-
+import CategoryForm from "@/Pages/Activities/CategoryForm";
 
 export default function Page() {
-  return <CategoryForm  />;
+  return <CategoryForm />;
 }

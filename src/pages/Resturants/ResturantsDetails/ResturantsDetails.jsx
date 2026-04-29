@@ -11,11 +11,9 @@ import JoinClubSection from "../../../components/JoinClubSection";
 import Gallery from "../../../components/Gallery";
 import RestaurantsMenu from "./RestaurantsMenu";
 import BookingSection from "./BookingSection";
-import ExperiencesSection from "@/pages/Home/ExperiencesSection";
+import ExperiencesSection from "@/Pages/Home/ExperiencesSection";
 
 const ResturantsDetails = ({ restaurant }) => {
-
-
   if (!restaurant) return <p className="p-6">Loading...</p>;
 
   const images =

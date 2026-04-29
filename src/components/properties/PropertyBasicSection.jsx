@@ -1,5 +1,3 @@
-
-
 import { useState } from "react";
 
 import {
@@ -11,7 +9,7 @@ import {
   deleteFeature,
 } from "../../api/propertiesApi";
 
-import MapPicker from "../../pages/Property/PrpertiesLanding/MapPicker";
+import MapPicker from "../../Pages/Property/PrpertiesLanding/MapPicker";
 
 export default function PropertyBasicSection({ property, setProperty }) {
   const [form, setForm] = useState({

@@ -1,8 +1,8 @@
-import ResturantsDetails from "@/pages/Resturants/ResturantsDetails/ResturantsDetails";
+import ResturantsDetails from "@/Pages/Resturants/ResturantsDetails/ResturantsDetails";
 import { getRestaurantBySlug } from "@/api/restaurantApi";
 
 export default async function Page({ params }) {
-    const { slug } = await params;
+  const { slug } = await params;
   const res = await getRestaurantBySlug(slug);
   const restaurant = res.data;
 

@@ -1,4 +1,4 @@
-import RestaurantList from "@/pages/Restaurants/RestaurantList";
+import RestaurantList from "@/Pages/Restaurants/RestaurantList";
 
 export default function Page() {
   return <RestaurantList />;
