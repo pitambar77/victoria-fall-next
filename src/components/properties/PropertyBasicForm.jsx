@@ -1,5 +1,6 @@
+import MapPicker from "@/Pages/Property/PrpertiesLanding/MapPicker";
 import React from "react";
-import MapPicker from "../../Pages/Property/PrpertiesLanding/MapPicker";
+
 
 export default function PropertyBasicForm({
   property,
