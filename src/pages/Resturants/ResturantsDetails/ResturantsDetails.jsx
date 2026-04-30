@@ -13,6 +13,7 @@ import RestaurantsMenu from "./RestaurantsMenu";
 import BookingSection from "./BookingSection";
 import ExperiencesSection from "@/Pages/Home/ExperiencesSection";
 
+
 const ResturantsDetails = ({ restaurant }) => {
   if (!restaurant) return <p className="p-6">Loading...</p>;
 
