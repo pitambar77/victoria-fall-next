@@ -2,7 +2,7 @@ import React from "react";
 // import Button from "./Button";
 import Overview from "../Pages/Home/Overview";
 import MemoriesSection from "../Pages/Home/MemoriesSection";
-import ConciergeServices from "../Pages/Home/ConciergeServices";
+
 import ExperiencesSection from "../Pages/Home/ExperiencesSection";
 import TestimonialSection from "./TestimonialSection";
 import Banner from "../components/Banner";
@@ -10,6 +10,7 @@ import Awards from "./Awards";
 import Customize from "./Customize";
 import JoinClubSection from "./JoinClubSection";
 import Map from "./Map";
+import ConciergeServices from "@/Pages/Home/ConciergeServices";
 // import PositiveImpact from "../pages/Home/PositiveImpact";
 
 const Hero = () => {
