@@ -137,7 +137,7 @@ const OwnerApplicationForm = () => {
         if (Array.isArray(value)) {
           value.forEach((file) => form.append(key, file)); // multiple images
         } else if (value) {
-          form.append(key, value);
+          form.append(key, value ?? "");
         }
       });
 
