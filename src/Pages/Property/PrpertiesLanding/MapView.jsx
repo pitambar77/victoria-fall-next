@@ -158,6 +158,8 @@ export default function MapView({ properties, hoveredId, setSelectedId }) {
     }
   };
 
+  console.log("MAP TOKEN:", process.env.NEXT_PUBLIC_MAPBOX_TOKEN);
+
   return (
     <div className="relative w-full h-full">
       <Map
