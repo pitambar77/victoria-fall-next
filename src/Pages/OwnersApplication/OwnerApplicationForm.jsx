@@ -133,13 +133,21 @@ const OwnerApplicationForm = () => {
       const form = new FormData();
 
       // Append text fields
+      // Object.entries(formData).forEach(([key, value]) => {
+      //   if (Array.isArray(value)) {
+      //     value.forEach((file) => form.append(key, file)); // multiple images
+      //   } else if (value) {
+      //     form.append(key, value ?? "");
+      //   }
+      // });
+
       Object.entries(formData).forEach(([key, value]) => {
-        if (Array.isArray(value)) {
-          value.forEach((file) => form.append(key, file)); // multiple images
-        } else if (value) {
-          form.append(key, value ?? "");
-        }
-      });
+  if (Array.isArray(value)) {
+    value.forEach((file) => form.append(key, file));
+  } else {
+    form.append(key, value ?? ""); // ✅ ALWAYS append
+  }
+});
 
       const res = await axios.post(
         "http://victoria-fall-backend.manoramaseoservice.com/api/owner-applications",
@@ -202,7 +210,7 @@ const OwnerApplicationForm = () => {
             </button>
           )}
 
-          {step <= 4 ? (
+          {step < 4 ? (
             <button
               type="button"
               onClick={nextStep}
