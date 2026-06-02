@@ -15,6 +15,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import "swiper/css";
 import "swiper/css/navigation";
+import Button from "@/components/Button";
 
 const ExperiencesSection = ({ destinationId, currentActivityId }) => {
   const prevRef = useRef(null);
@@ -112,14 +113,14 @@ const ExperiencesSection = ({ destinationId, currentActivityId }) => {
           {/* Custom Navigation */}
           <button
             ref={prevRef}
-            className="hidden md:flex absolute top-1/2 -left-12 -translate-y-1/2 w-10 h-10 items-center justify-center rounded-full border border-gray-300 bg-white/80 shadow hover:bg-gray-100 transition opacity-0 group-hover:opacity-100 z-10"
+            className="hidden md:flex absolute top-1/2 -left-12 -translate-y-1/2 w-10 h-10 items-center justify-center rounded-full border border-gray-300 bg-white/80 shadow hover:bg-gray-100 transition opacity-0 group-hover:opacity-100 z-10 cursor-pointer"
           >
             <ChevronLeft size={22} />
           </button>
 
           <button
             ref={nextRef}
-            className="hidden md:flex absolute top-1/2 -right-12 -translate-y-1/2 w-10 h-10 items-center justify-center rounded-full border border-gray-300 bg-white/80 shadow hover:bg-gray-100 transition opacity-0 group-hover:opacity-100 z-10"
+            className="hidden md:flex absolute top-1/2 -right-12 -translate-y-1/2 w-10 h-10 items-center justify-center rounded-full border border-gray-300 bg-white/80 shadow hover:bg-gray-100 transition opacity-0 group-hover:opacity-100 z-10 cursor-pointer"
           >
             <ChevronRight size={22} />
           </button>
@@ -127,12 +128,15 @@ const ExperiencesSection = ({ destinationId, currentActivityId }) => {
       </div>
 
       <div className="max-w-[1140px] mx-auto text-center mt-10">
-        <Link
+        {/* <Link
           href="/victoria-falls-experiences"
           className="text-white border-0 bg-[#aca188] rounded-[50px] text-[14px] leading-[1.6] uppercase tracking-[3px] font-normal py-[10px] px-[20px] hover:bg-[#c40] transition-colors duration-300 cursor-pointer ease-out"
         >
           View all experiences
-        </Link>
+        </Link> */}
+       <Button href="/victoria-falls-experiences">
+        View all experiences
+       </Button>
       </div>
     </div>
   );

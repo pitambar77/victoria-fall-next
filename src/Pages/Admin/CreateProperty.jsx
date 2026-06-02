@@ -24,7 +24,8 @@ export default function CreateProperty() {
       title: "",
       subTitle: "",
       landingsubcontent: "",
-      description: [],
+      // description: [],
+      shortdescription: "",
     },
 
     slug: "",
@@ -54,11 +55,13 @@ export default function CreateProperty() {
     },
 
     incidental: {
-      description: [],
+      // description: [],
+      shortdescription: "",
     },
 
     information: {
-      info: [],
+      // info: [],
+      shortInformation: "",
     },
 
     gallery: [],
@@ -97,23 +100,34 @@ export default function CreateProperty() {
         setError("title", "Property name is required");
         return;
       }
-      const descriptions = property.overview.description || [];
+      // const descriptions = property.overview.description || [];
 
-      if (descriptions.length === 0) {
+      // if (descriptions.length === 0) {
+      //   setErrors({
+      //     description_0: "Description is required",
+      //   });
+      //   return;
+      // }
+
+      if (
+        !property.overview.shortdescription ||
+        !stripHtml(property.overview.shortdescription).trim()
+      ) {
         setErrors({
-          description_0: "Description is required",
+          shortdescription: "Short description is required",
         });
+
         return;
       }
 
-      for (let i = 0; i < descriptions.length; i++) {
-        if (!descriptions[i].content?.trim()) {
-          setErrors({
-            [`description_${i}`]: "Description is required",
-          });
-          return;
-        }
-      }
+      // for (let i = 0; i < descriptions.length; i++) {
+      //   if (!descriptions[i].content?.trim()) {
+      //     setErrors({
+      //       [`description_${i}`]: "Description is required",
+      //     });
+      //     return;
+      //   }
+      // }
     }
 
     if (step === 2) {
@@ -382,105 +396,125 @@ export default function CreateProperty() {
       }
     }
 
+    // if (step === 9) {
+    //   const blocks = property.incidental.description || [];
+
+    //   for (let i = 0; i < blocks.length; i++) {
+    //     const block = blocks[i];
+
+    //     if (i === 0) {
+    //       const anyFilled =
+    //         block.type === "list"
+    //           ? Array.isArray(block.content) && block.content.length > 0
+    //           : block.content?.trim();
+
+    //       const allFilled =
+    //         block.type === "list"
+    //           ? Array.isArray(block.content) &&
+    //             block.content.filter((item) => item.trim() !== "").length > 0
+    //           : block.content?.trim();
+
+    //       if (anyFilled && !allFilled) {
+    //         setErrors({
+    //           [`incidental_${i}`]: "Please complete this section",
+    //         });
+    //         return;
+    //       }
+
+    //       continue;
+    //     }
+
+    //     if (block.type === "list") {
+    //       if (
+    //         !Array.isArray(block.content) ||
+    //         block.content.filter((item) => item.trim() !== "").length === 0
+    //       ) {
+    //         setErrors({
+    //           [`incidental_${i}`]: "Please add list items",
+    //         });
+    //         return;
+    //       }
+    //     } else {
+    //       if (!block.content?.trim()) {
+    //         setErrors({
+    //           [`incidental_${i}`]: "Content is required",
+    //         });
+    //         return;
+    //       }
+    //     }
+    //   }
+    // }
+
     if (step === 9) {
-      const blocks = property.incidental.description || [];
-
-      for (let i = 0; i < blocks.length; i++) {
-        const block = blocks[i];
-
-        /* FIRST BLOCK OPTIONAL */
-
-        if (i === 0) {
-          const anyFilled =
-            block.type === "list"
-              ? Array.isArray(block.content) && block.content.length > 0
-              : block.content?.trim();
-
-          const allFilled =
-            block.type === "list"
-              ? Array.isArray(block.content) &&
-                block.content.filter((item) => item.trim() !== "").length > 0
-              : block.content?.trim();
-
-          if (anyFilled && !allFilled) {
-            setErrors({
-              [`incidental_${i}`]: "Please complete this section",
-            });
-            return;
-          }
-
-          continue;
-        }
-
-        /* OTHER BLOCKS REQUIRED */
-
-        if (block.type === "list") {
-          if (
-            !Array.isArray(block.content) ||
-            block.content.filter((item) => item.trim() !== "").length === 0
-          ) {
-            setErrors({
-              [`incidental_${i}`]: "Please add list items",
-            });
-            return;
-          }
-        } else {
-          if (!block.content?.trim()) {
-            setErrors({
-              [`incidental_${i}`]: "Content is required",
-            });
-            return;
-          }
-        }
+      if (
+        !property.incidental.shortdescription ||
+        !stripHtml(property.incidental.shortdescription).trim()
+      ) {
+        setErrors({
+          incidentalShortdescription: "Description is required",
+        });
+        return;
       }
     }
 
+    // if (step === 10) {
+    //   const blocks = property.information.info || [];
+
+    //   for (let i = 0; i < blocks.length; i++) {
+    //     const block = blocks[i];
+
+    //     if (i === 0) {
+    //       const anyFilled =
+    //         block.type === "list"
+    //           ? Array.isArray(block.content) && block.content.length > 0
+    //           : block.content?.trim();
+
+    //       const allFilled =
+    //         block.type === "list"
+    //           ? Array.isArray(block.content) &&
+    //             block.content.filter((item) => item.trim() !== "").length > 0
+    //           : block.content?.trim();
+
+    //       if (anyFilled && !allFilled) {
+    //         setErrors({
+    //           [`information_${i}`]: "Please complete this section",
+    //         });
+    //         return;
+    //       }
+
+    //       continue;
+    //     }
+
+    //     if (block.type === "list") {
+    //       if (
+    //         !Array.isArray(block.content) ||
+    //         block.content.filter((item) => item.trim() !== "").length === 0
+    //       ) {
+    //         setErrors({
+    //           [`information_${i}`]: "Please add list items",
+    //         });
+    //         return;
+    //       }
+    //     } else {
+    //       if (!block.content?.trim()) {
+    //         setErrors({
+    //           [`information_${i}`]: "Content is required",
+    //         });
+    //         return;
+    //       }
+    //     }
+    //   }
+    // }
+
     if (step === 10) {
-      const blocks = property.information.info || [];
-
-      for (let i = 0; i < blocks.length; i++) {
-        const block = blocks[i];
-
-        if (i === 0) {
-          const anyFilled =
-            block.type === "list"
-              ? Array.isArray(block.content) && block.content.length > 0
-              : block.content?.trim();
-
-          const allFilled =
-            block.type === "list"
-              ? Array.isArray(block.content) &&
-                block.content.filter((item) => item.trim() !== "").length > 0
-              : block.content?.trim();
-
-          if (anyFilled && !allFilled) {
-            setErrors({
-              [`information_${i}`]: "Please complete this section",
-            });
-            return;
-          }
-
-          continue;
-        }
-
-        if (block.type === "list") {
-          if (
-            !Array.isArray(block.content) ||
-            block.content.filter((item) => item.trim() !== "").length === 0
-          ) {
-            setErrors({
-              [`information_${i}`]: "Please add list items",
-            });
-            return;
-          }
-        } else {
-          if (!block.content?.trim()) {
-            setErrors({
-              [`information_${i}`]: "Content is required",
-            });
-            return;
-          }
-        }
+      if (
+        !property.information.shortInformation ||
+        !stripHtml(property.information.shortInformation).trim()
+      ) {
+        setErrors({
+          shortInformation: "Information is required",
+        });
+        return;
       }
     }
 
@@ -590,13 +624,13 @@ export default function CreateProperty() {
       });
 
       await axios.post(
-        process.env.NEXT_PUBLIC_API_URL + "/api/property",
+        process.env.NEXT_PUBLIC_API_BASE + "/api/property",
         formData,
       );
       // await axios.post("http://localhost:8001/api/property", formData);
 
       alert("✅ Property created successfully!");
-      router.push("/dashbord/properties");
+      router.push("/dashboard/properties");
     } catch (error) {
       console.error(error);
       alert("❌ Failed to create property. Please try again.");
@@ -750,6 +784,12 @@ export default function CreateProperty() {
     }
   };
 
+  const stripHtml = (html) => {
+    const temp = document.createElement("div");
+    temp.innerHTML = html;
+    return temp.textContent || temp.innerText || "";
+  };
+
   return (
     <div className="hd mx-auto  rounded-md p-8">
       <h1 className=" mb-4 font-semibold text-xl">Add New Property</h1>
@@ -791,27 +831,6 @@ export default function CreateProperty() {
         </div>
       </div>
 
-      {/* TABS */}
-      {/* <div className="flex mb-6 bg-white overflow-x-auto">
-        {steps.map((label, index) => {
-          const tabStep = index + 1;
-
-          return (
-            <button
-              key={index}
-              onClick={() => setStep(tabStep)}
-              className={`px-5 py-3 cursor-pointer text-sm font-medium border-b-2 transition
-        ${
-          step === tabStep
-            ? "border-blue-600 text-blue-600"
-            : "border-transparent text-gray-500 hover:text-blue-600"
-        }`}
-            >
-              {label}
-            </button>
-          );
-        })}
-      </div> */}
       <div className=" bg-white p-4 rounded-md">
         {/* FORM STEP */}
         {renderStep()}

@@ -1,24 +1,26 @@
-"use client"
+"use client";
 
-import React, { useState } from 'react';
-import Button from './Button';
+import React, { useState } from "react";
 
 const JoinClubSection = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [agreed, setAgreed] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Here you would typically send this data to a server
     console.log({ name, email, agreed });
-    alert('Subscription attempt logged to console!');
+    alert("Subscription attempt logged to console!");
   };
 
   return (
     <div
       className="relative bg-cover bg-center h-[500px] sm:h-[600px] flex items-center justify-center px-4 "
-      style={{ backgroundImage: 'url("https://africanscenicsafaris.com/blog/wp-content/uploads/2025/05/off-the-beaten-path-tanzania-safari-packages-you-need-to-experience-banner-scaled.webp")' }} // Replace with your image URL
+      style={{
+        backgroundImage:
+          'url("https://africanscenicsafaris.com/blog/wp-content/uploads/2025/05/off-the-beaten-path-tanzania-safari-packages-you-need-to-experience-banner-scaled.webp")',
+      }} // Replace with your image URL
     >
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black opacity-40"></div>
@@ -29,8 +31,9 @@ const JoinClubSection = () => {
           JOIN THE CLUB
         </h2>
         <p className=" hd text-sm mb-10  tracking-[1px]  ">
-          Sign up to start your journey and be the first to receive early access to exclusive
-          offers, inspiring stories, and the latest news from across the Rothschild Safaris globe.
+          Sign up to start your journey and be the first to receive early access
+          to exclusive offers, inspiring stories, and the latest news from
+          across the Rothschild Safaris globe.
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-4 hd ">
@@ -58,17 +61,21 @@ const JoinClubSection = () => {
               checked={agreed}
               onChange={(e) => setAgreed(e.target.checked)}
             />
-            <label htmlFor="agreement" className=" hd text-sm text-gray-200 text-left cursor-pointer">
-              By subscribing I agree to receive the latest travel updates, stories, and inspiration.
+            <label
+              htmlFor="agreement"
+              className=" hd text-sm text-gray-200 text-left cursor-pointer"
+            >
+              By subscribing I agree to receive the latest travel updates,
+              stories, and inspiration.
             </label>
           </div>
 
-          <Button
+          <button
+            className="text-white border-0 bg-[#aca188] rounded-[50px] text-[14px] leading-[1.6] uppercase tracking-[3px] py-[10px] px-[20px] hover:bg-[#c40] transition-colors duration-300 cursor-pointer ease-out"
             type="submit"
-            
           >
             Subscribe now
-          </Button>
+          </button>
         </form>
       </div>
     </div>

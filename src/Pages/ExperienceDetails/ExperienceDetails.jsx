@@ -34,7 +34,7 @@ const ExperienceDetails = ({slug}) => {
     <>
       <Banner
         title={bannerData?.title || activity.activityName}
-        subtitle={bannerData?.subTitle || ""}
+        // subtitle={bannerData?.subTitle || ""}
         imageUrl={bannerData?.bannerImage || activity.overviewImage}
       />
 

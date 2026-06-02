@@ -85,9 +85,9 @@ const RestaurantsMenu = ({ menu }) => {
 
         {/* "View All Menu" Button */}
         <div className="md:mt-20 mt-8">
-          <Button className="border border-amber-300 py-3 px-8 text-sm tracking-widest uppercase hover:text-[#0b132a] transition duration-300">
+          <button className="text-white border-0 bg-[#aca188] rounded-[50px] text-[14px] leading-[1.6] uppercase tracking-[3px] py-[10px] px-[20px] hover:bg-[#c40] transition-colors duration-300 cursor-pointer ease-out">
             VIEW ALL MENU
-          </Button>
+          </button>
         </div>
       </div>
     </section>

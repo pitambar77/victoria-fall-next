@@ -18,7 +18,7 @@ import { MdOutlineAttachMoney } from "react-icons/md";
 
 export default function MemoriesSection({ title, description }) {
   const [properties, setProperties] = useState([]);
-   const router = useRouter();
+  const router = useRouter();
 
   // const loadProperties = async () => {
   //   const res = await getProperties();
@@ -26,25 +26,25 @@ export default function MemoriesSection({ title, description }) {
   // };
 
   const loadProperties = async () => {
-  try {
-    const res = await getProperties();
+    try {
+      const res = await getProperties();
 
-    const formatted = res.data.map((p) => ({
-      id: p._id,
-      slug: p.slug,
-      title: p.overview?.title,
-      price: p.price,
-      category: p.category,
-      city: p.city,
-      adress:p.address,
-      image: p.gallery?.length ? p.gallery[0].image : "",
-    }));
+      const formatted = res.data.map((p) => ({
+        id: p._id,
+        slug: p.slug,
+        title: p.overview?.title,
+        price: p.price,
+        category: p.category,
+        city: p.city,
+        adress: p.address,
+        image: p.gallery?.length ? p.gallery[0].image : "",
+      }));
 
-    setProperties(formatted);
-  } catch (err) {
-    console.log(err);
-  }
-};
+      setProperties(formatted);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   useEffect(() => {
     loadProperties();
@@ -54,10 +54,9 @@ export default function MemoriesSection({ title, description }) {
     <div className="max-w-[1140px] mx-auto py-10 sm:py-14 md:py-16 px-4 relativ">
       {/* Heading */}
       <h2 className="hd text-center text-[20px] sm:text-[24px] md:text-[30px] mb-6 font-semibold text-[#2e2c2d] tracking-[2px] md:tracking-[3px] uppercase leading-snug max-w-2xl mx-auto">
-         {title}
+        {title}
       </h2>
       <p className=" hd max-w-xl mx-auto md:text-center text-justify text-[#5c5e62]   md:mb-16 mb-0 ">
-        
         {description}
       </p>
 
@@ -89,7 +88,7 @@ export default function MemoriesSection({ title, description }) {
         >
           {properties.map((property) => (
             <SwiperSlide key={property._id}>
-              <Link href={`/property/${property.slug}`}  >
+              <Link href={`/property/${property.slug}`}>
                 <div className="relative group overflow-hidden rounded-sm h-[480px]">
                   {/* Image */}
                   <img
@@ -126,7 +125,7 @@ export default function MemoriesSection({ title, description }) {
                     {/* Price */}
                     <p className="hd flex items-center gap-1 text-sm text-gray-200 mt-1">
                       <MdOutlineAttachMoney className=" text-xl" />
-                       {property.price}
+                      {property.price}
                     </p>
                   </div>
 
@@ -152,14 +151,7 @@ export default function MemoriesSection({ title, description }) {
 
       {/* CTA Button */}
       <div className="text-center mt-4 sm:mt-4 md:mt-6">
-        <Button
-          onClick={() => {
-            navigate("/properties");
-            window.scrollTo(0, 0);
-          }}
-        >
-          FIND THE PERFECT VILLA
-        </Button>
+        <Button href={"/properties"}>FIND THE PERFECT VILLA</Button>
       </div>
     </div>
   );

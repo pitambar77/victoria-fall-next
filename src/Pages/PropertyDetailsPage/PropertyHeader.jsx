@@ -9,11 +9,19 @@ export default function PropertyHeader({ property }) {
           {overview?.title}
         </h1>
 
-        {overview?.description?.map((block) => (
+        {/* {overview?.description?.map((block) => (
           <p key={block._id} className="hd text-[#5c5e62]">
             {block.content}
           </p>
-        ))}
+        ))} */}
+        {overview?.shortdescription && (
+          <div
+            className="hd text-[#5c5e62] rich-text"
+            dangerouslySetInnerHTML={{
+              __html: overview.shortdescription,
+            }}
+          />
+        )}
       </div>
     </div>
   );

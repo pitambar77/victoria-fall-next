@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Button from "./Button";
 import Link from "next/link";
 
-
 const Customize = () => {
   const [hoveredStep, setHoveredStep] = useState(null);
 
@@ -14,7 +13,6 @@ const Customize = () => {
       description:
         "Receive a tailored itinerary designed around your interests, travel dates, and preferences.",
       icon: (
-        
         <svg
           width="40px"
           height="40px"
@@ -23,16 +21,12 @@ const Customize = () => {
           xmlns="http://www.w3.org/2000/svg"
         >
           <g id="SVGRepo_bgCarrier"></g>
-          <g
-            id="SVGRepo_tracerCarrier"
-            
-          ></g>
+          <g id="SVGRepo_tracerCarrier"></g>
           <g id="SVGRepo_iconCarrier">
             {" "}
             <path
               d="M9 20L3 17V4L9 7M9 20L15 17M9 20V7M15 17L21 20V7L15 4M15 17V4M9 7L15 4"
               stroke="#ffffff"
-              
             ></path>{" "}
           </g>
         </svg>
@@ -52,13 +46,9 @@ const Customize = () => {
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
           stroke="#ffffff"
-          
         >
-          <g id="SVGRepo_bgCarrier" ></g>
-          <g
-            id="SVGRepo_tracerCarrier"
-           
-          ></g>
+          <g id="SVGRepo_bgCarrier"></g>
+          <g id="SVGRepo_tracerCarrier"></g>
           <g id="SVGRepo_iconCarrier">
             {" "}
             <path d="M31.999 13.008l-0-10.574c0-1.342-1.092-2.434-2.433-2.434h-10.793c-0.677 0-1.703 0-2.372 0.67l-15.81 15.811c-0.38 0.38-0.59 0.884-0.59 1.421 0 0.538 0.209 1.043 0.589 1.423l12.088 12.085c0.379 0.381 0.883 0.59 1.421 0.59s1.042-0.209 1.421-0.589l15.811-15.812c0.678-0.677 0.674-1.65 0.67-2.591zM29.915 14.186l-15.826 15.811-12.086-12.101 15.794-15.797c0.159-0.099 0.732-0.099 0.968-0.099l0.45 0.002 10.35-0.002c0.239 0 0.433 0.195 0.433 0.434v10.582c0.002 0.38 0.004 1.017-0.084 1.169zM24 4c-2.209 0-4 1.791-4 4s1.791 4 4 4c2.209 0 4-1.791 4-4s-1.791-4-4-4zM24 10c-1.105 0-2-0.896-2-2s0.895-2 2-2 2 0.896 2 2-0.895 2-2 2z"></path>{" "}
@@ -79,13 +69,9 @@ const Customize = () => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           stroke="#ffffff"
-          
         >
           <g id="SVGRepo_bgCarrier"></g>
-          <g
-            id="SVGRepo_tracerCarrier"
-            
-          ></g>
+          <g id="SVGRepo_tracerCarrier"></g>
           <g id="SVGRepo_iconCarrier">
             {" "}
             <path
@@ -154,11 +140,13 @@ const Customize = () => {
 
         {/* CTA */}
         <div className="flex justify-center hd mt-8">
-          <Button>
-            <Link href="https://api.whatsapp.com/send?phone=%2B27765599823" target="_blank" >
-              +27 76 559 9823
-            </Link>
-          </Button>
+          <Link
+            href="https://api.whatsapp.com/send?phone=%2B27765599823"
+            target="_blank"
+            className="text-white border-0 bg-[#aca188] rounded-[50px] text-[14px] leading-[1.6] uppercase tracking-[3px] py-[10px] px-[20px] hover:bg-[#c40] transition-colors duration-300 cursor-pointer ease-out"
+          >
+            +27 76 559 9823
+          </Link>
         </div>
       </div>
     </div>

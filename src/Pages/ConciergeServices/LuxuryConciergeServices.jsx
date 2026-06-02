@@ -20,6 +20,7 @@ import MakeYourself from "./MakeYourself";
 import FoodHall from "./FoodHall";
 import { getDestinationBySlug } from "../../api/destinationApi";
 import BannerSkeleton from "../../components/skeletons/BannerSkeleton";
+import Link from "next/link";
 
 const LuxuryConciergeServices = () => {
   const router = useRouter();
@@ -34,7 +35,7 @@ const LuxuryConciergeServices = () => {
   if (isLoading) {
     return (
       <div className="h-[80vh] flex items-center justify-center">
-        <BannerSkeleton/>
+        <BannerSkeleton />
       </div>
     );
   }
@@ -53,28 +54,18 @@ const LuxuryConciergeServices = () => {
         description="At Where to Africa, our mission is to transform your holiday into a truly unforgettable experience. We take care of every detail so you don’t have to."
       />
 
-    <SectionNavigator />
-       <MakeYourself />
+      <SectionNavigator />
+      <MakeYourself />
       <CultureEntertainment />
       <BeautyWellbeing />
       <PrivateEvents />
-      <FoodHall/>
+      <FoodHall />
 
       <div className="max-w-[1140px] mx-auto pb-10 md:pb-20 px-4 text-center">
-        <Button
-          onClick={() => {
-            router("/contact-us");
-            window.scrollTo(0, 0);
-          }}
-        >
-          Book Your Tailor-Made Services
-        </Button>
+        <Button href={"/contact-us"}>Book Your Tailor-Made Services</Button>
       </div>
 
-     
-      {destination && (
-        <ExperienceServices destinationId={destination._id} />
-      )}
+      {destination && <ExperienceServices destinationId={destination._id} />}
 
       <TestimonialSection />
       <Awards />

@@ -5,7 +5,6 @@ import Button from "../../components/Button";
 import ActivityExperienceEnquiryForm from "../../components/ActivityExperienceEnquiryForm";
 import { IoIosClose } from "react-icons/io";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import ZauiBookingModal from "@/components/ZauiBookingModal";
 
 const iconMap = {
@@ -97,15 +96,20 @@ const FacilitiesSection = ({ activity }) => {
           </div>
 
           <div className="flex items-center gap-6">
-            <Button onClick={() => setShowForm(true)}>Send Enquiry</Button>
-            {/* <Button className="px-6 py-3 bg-[#2e2c2d] text-white text-sm font-medium rounded hover:bg-black transition">
-              <Link to={'https://pureafricaexperiences.zaui.net/booking/web/#/default/activity/275'}>Book Online</Link>
-            </Button> */}
-            {/* <Button href={activity.bookNowUrl} target="_blank">
-              Book Online
-            </Button> */}
+            <button
+              className="text-white border-0 bg-[#aca188] rounded-[50px] text-[14px] leading-[1.6] uppercase tracking-[3px] py-[10px] px-[20px] hover:bg-[#c40] transition-colors duration-300 cursor-pointer ease-out"
+              onClick={() => setShowForm(true)}
+            >
+              Send Enquiry
+            </button>
+       
             {/* ✅ ADD THIS BUTTON */}
-            <Button onClick={() => setShowBooking(true)}>Book Online</Button>
+            <button
+              className="text-white border-0 bg-[#aca188] rounded-[50px] text-[14px] leading-[1.6] uppercase tracking-[3px] py-[10px] px-[20px] hover:bg-[#c40] transition-colors duration-300 cursor-pointer ease-out"
+              onClick={() => setShowBooking(true)}
+            >
+              Book Online
+            </button>
             <ZauiBookingModal
               url={activity.bookNowUrl}
               isOpen={showBooking}

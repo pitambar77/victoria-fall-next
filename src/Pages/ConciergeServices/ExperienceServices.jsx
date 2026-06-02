@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { getActivities } from "../../api/activityApi.js";
-import Link from "next/link.js";
+import Button from "@/components/Button.jsx";
 
 const ExperienceServices = ({ destinationId }) => {
   const [activities, setActivities] = useState([]);
@@ -113,12 +113,15 @@ const ExperienceServices = ({ destinationId }) => {
           ))}
         </div>
         <div className=" max-w-[1140px] mx-auto pt-10 md:pt-20 px-4 text-center">
-          <Link
+          {/* <Link
             href="/victoria-falls-experiences"
-            className=" text-white border-0 bg-[#aca188] rounded-[50px] text-[14px] leading-[1.6] uppercase tracking-[3px] font-normal py-[10px] px-[20px] hover:bg-[#c40] transition-colors duration-300 cursor-pointer ease-out"
+            className=" text-white border-0 bg-[#aca188] rounded-[50px] text-[14px] leading-[1.6] uppercase tracking-[3px] font-normal py-[12px] px-[20px] hover:bg-[#c40] transition-colors duration-300 cursor-pointer ease-out"
           >
             View all experiences
-          </Link>
+          </Link> */}
+          <Button href={"/victoria-falls-experiences"}>
+             View all experiences
+          </Button>
         </div>
       </div>
     </section>

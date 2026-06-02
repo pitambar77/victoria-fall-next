@@ -1,22 +1,20 @@
-"use client"
+"use client";
 
-import React, { useState } from 'react';
-import Button from '../../components/Button';
+import React, { useState } from "react";
 
 const ContactForm = () => {
   // State to manage form data (optional, but good practice)
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    mobile: '',
-    subject: '',
-    message: '',
+    firstName: "",
+    lastName: "",
+    email: "",
+    mobile: "",
+    subject: "",
+    message: "",
   });
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
-
 
   // Handle input changes
   const handleChange = (e) => {
@@ -33,21 +31,24 @@ const ContactForm = () => {
     setMessage("");
 
     try {
-      const response = await fetch("http://victoria-fall-backend.manoramaseoservice.com/api/contactus", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "http://victoria-fall-backend.manoramaseoservice.com/api/contactus",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        },
+      );
 
       if (response.ok) {
         setMessage("✅ Booking submitted successfully!");
         setFormData({
-           firstName: '',
-    lastName: '',
-    email: '',
-    mobile: '',
-    subject: '',
-    message: '',
+          firstName: "",
+          lastName: "",
+          email: "",
+          mobile: "",
+          subject: "",
+          message: "",
         });
       } else {
         const error = await response.json();
@@ -61,12 +62,13 @@ const ContactForm = () => {
     }
   };
 
-
   // Define the common input styles
-  const inputStyle = "hd w-full border-b border-gray-400 focus:outline-none focus:border-gray-300 focus:rounded-sm px-2 focus:border-1 placeholder-transparent bg-transparent py-2 text-gray-800";
+  const inputStyle =
+    "hd w-full border-b border-gray-400 focus:outline-none focus:border-gray-300 focus:rounded-sm px-2 focus:border-1 placeholder-transparent bg-transparent py-2 text-gray-800";
   // Define the common label/placeholder styles (The "placeholder-transparent" moves the label above the input)
-  const labelStyle = "hd absolute left-0 -top-5 text-sm transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-2 peer-focus:-top-5 peer-focus:text-sm peer-focus:text-[#aca188] ";
-  
+  const labelStyle =
+    "hd absolute left-0 -top-5 text-sm transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-2 peer-focus:-top-5 peer-focus:text-sm peer-focus:text-[#aca188] ";
+
   // Custom text color based on the image (a soft brown/gold)
   const textColor = "text-[#8B5F37]"; // Using a specific hex for the gold/brown color
 
@@ -74,12 +76,11 @@ const ContactForm = () => {
     <div className="flex justify-center min-h-screen bg-white py-10 md:py-20 px-4">
       <form onSubmit={handleSubmit} className="w-full max-w-3xl">
         {/* Title */}
-        <h1 className='hd text-xl md:text-[30px] font-semibold text-[#2e2c2d] text-center tracking-[3px] uppercase mb-10'>
+        <h1 className="hd text-xl md:text-[30px] font-semibold text-[#2e2c2d] text-center tracking-[3px] uppercase mb-10">
           How can we help you ?
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
-          
           {/* First Name */}
           <div className="relative pt-6">
             <input
@@ -172,7 +173,7 @@ const ContactForm = () => {
               rows="6"
               value={formData.message}
               onChange={handleChange}
-             placeholder='Message'
+              placeholder="Message"
               className={`peer ${inputStyle}`}
               required
             ></textarea>
@@ -181,37 +182,28 @@ const ContactForm = () => {
               Message
             </label>
           </div>
-
         </div>
 
-        {/* Send Button */}
         <div className="text-center mt-12">
-          {/* <button
+          {/* Submit Button */}
+          <button
+            className="text-white border-0 bg-[#aca188] rounded-[50px] text-[14px] leading-[1.6] uppercase tracking-[3px] py-[10px] px-[20px] hover:bg-[#c40] transition-colors duration-300 cursor-pointer ease-out"
             type="submit"
-            className={`text-xl ${textColor} font-serif italic tracking-wider hover:underline`}
+            disabled={loading}
           >
-            Send
-          </button> */}
-          {/* <Button>
-            Send Enquiry
-          </Button> */}
-            {/* Submit Button */}
-                    <Button type="submit" disabled={loading}>
-                      {loading ? "Sending..." : "Send Enquiry"}
-                    </Button>
-          
-                    {/* Success / Error Message */}
-                    {message && (
-                      <p
-                        className={`text-sm mt-3 ${
-                          message.startsWith("✅")
-                            ? "text-green-600"
-                            : "text-red-600"
-                        }`}
-                      >
-                        {message}
-                      </p>
-                    )}
+            {loading ? "Sending..." : "Send Enquiry"}
+          </button>
+
+          {/* Success / Error Message */}
+          {message && (
+            <p
+              className={`text-sm mt-3 ${
+                message.startsWith("✅") ? "text-green-600" : "text-red-600"
+              }`}
+            >
+              {message}
+            </p>
+          )}
         </div>
       </form>
     </div>

@@ -29,11 +29,14 @@ const BookingSection = ({ restaurantData }) => {
     setMessage("");
 
     try {
-      const res = await fetch("http://victoria-fall-backend.manoramaseoservice.com/api/restaubookings", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        "http://victoria-fall-backend.manoramaseoservice.com/api/restaubookings",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        },
+      );
 
       if (res.ok) {
         setMessage("✅ Enquiry submitted successfully!");
@@ -61,7 +64,10 @@ const BookingSection = ({ restaurantData }) => {
 
   return (
     <>
-      <div id="booking-form" className="max-w-[1140px] mx-auto mt-8 md:pt-20 px-4">
+      <div
+        id="booking-form"
+        className="max-w-[1140px] mx-auto mt-8 md:pt-20 px-4"
+      >
         <p className="text-sm text-center tracking-widest uppercase mb-4 text-[#5c5e62]">
           your special moment
         </p>
@@ -147,9 +153,13 @@ const BookingSection = ({ restaurantData }) => {
           ></textarea>
 
           <div className="text-center mt-10">
-            <Button type="submit" disabled={loading}>
+            <button
+              className="text-white border-0 bg-[#aca188] rounded-[50px] text-[14px] leading-[1.6] uppercase tracking-[3px] py-[10px] px-[20px] hover:bg-[#c40] transition-colors duration-300 cursor-pointer ease-out"
+              type="submit"
+              disabled={loading}
+            >
               {loading ? "Submitting..." : "BOOK YOUR TABLE"}
-            </Button>
+            </button>
 
             {message && (
               <p

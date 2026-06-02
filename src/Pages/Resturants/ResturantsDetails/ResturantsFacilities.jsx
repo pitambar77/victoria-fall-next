@@ -159,13 +159,13 @@ const ResturantsFacilities = React.memo(({ restaurant }) => {
           </div>
 
           {/* CTA */}
-          <div className="flex items-center gap-6">
-            <Button
+          <div className=" hd flex items-center gap-6">
+            <button
               onClick={handleClick}
-              className="px-6 py-3 bg-[#2e2c2d] text-white text-sm font-medium rounded hover:bg-black transition"
+              className="text-white border-0 bg-[#aca188] rounded-[50px] text-[14px] leading-[1.6] uppercase tracking-[3px] py-[10px] px-[20px] hover:bg-[#c40] transition-colors duration-300 cursor-pointer ease-out"
             >
               BOOK NOW
-            </Button>
+            </button>
           </div>
         </div>
 

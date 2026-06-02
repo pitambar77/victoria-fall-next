@@ -8,11 +8,8 @@ import { LuUtensils } from "react-icons/lu";
 
 import Button from "@/components/Button";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 const ConciergeServices = () => {
-  const router = useRouter();
-
   const services = [
     {
       title: "Make Yourself at Home",
@@ -99,14 +96,7 @@ const ConciergeServices = () => {
         </div>
 
         {/* Button */}
-        <Button
-          onClick={() => {
-            router.push("/contact-us");
-            window.scrollTo(0, 0);
-          }}
-        >
-          Book Your Tailor-Made Services
-        </Button>
+        <Button href={"/contact-us"}>Book Your Tailor-Made Services</Button>
       </div>
     </section>
   );

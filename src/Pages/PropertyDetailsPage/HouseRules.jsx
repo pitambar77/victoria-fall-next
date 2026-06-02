@@ -158,24 +158,6 @@ export default function HouseRules({ property }) {
             <p>{rules.content}</p>
           </div>
 
-          {/* RULE LIST */}
-          {/* <div className="grid md:grid-cols-2 gap-6 pt-4">
-            {rules.rule?.map((rule) => (
-              <div key={rule._id} className="flex gap-4">
-                <img src={rule.icon} className="w-7 h-7 object-contain" />
-
-                <div>
-                  <p className="hd font-[500] text-lg text-[#2e2c2d]">
-                    {rule.title}
-                  </p>
-
-                  <p className="text-[16px] text-[#2e2c2d]">
-                    {rule.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div> */}
           <div className="grid md:grid-cols-2 gap-6 pt-4">
             {rules.rule?.map((rule) => {
               const iconData = amenityIcons.find((i) => i.name === rule.icon);
@@ -212,7 +194,7 @@ export default function HouseRules({ property }) {
         </div>
 
         <div className="w-full md:w-2/3 space-y-3">
-          {incidental?.description?.map((item) => {
+          {/* {incidental?.description?.map((item) => {
             if (item.type === "header") {
               return (
                 <h3
@@ -229,7 +211,15 @@ export default function HouseRules({ property }) {
                 {item.content}
               </p>
             );
-          })}
+          })} */}
+          {incidental?.shortdescription && (
+            <div
+              className="rich-text text-[#5c5e62] leading-relaxed mb-4"
+              dangerouslySetInnerHTML={{
+                __html: incidental.shortdescription,
+              }}
+            />
+          )}
         </div>
       </div>
 
@@ -243,7 +233,7 @@ export default function HouseRules({ property }) {
         </div>
 
         <div className="hd w-full md:w-2/3 space-y-3">
-          {information?.info?.map((item) => {
+          {/* {information?.info?.map((item) => {
             if (item.type === "header") {
               return (
                 <h3
@@ -260,7 +250,16 @@ export default function HouseRules({ property }) {
                 {item.content}
               </p>
             );
-          })}
+          })} */}
+
+          {information?.shortInformation && (
+            <div
+              className="rich-text text-[#5c5e62] leading-relaxed mb-4"
+              dangerouslySetInnerHTML={{
+                __html: information.shortInformation,
+              }}
+            />
+          )}
         </div>
       </div>
     </div>
