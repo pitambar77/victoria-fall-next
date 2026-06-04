@@ -65,7 +65,18 @@ const Sidebar = () => {
               : "hover:bg-[#c40]"
           }`}
         >
-          <FaHome /> Home
+          <FaHome /> Dashboard 
+        </Link>
+
+            <Link
+          href="/dashboard/home"
+          className={`flex items-center gap-2 px-3 py-2 rounded-md ${
+            pathname === "/dashboard/home"
+              ? "bg-[#c40] text-white"
+              : "hover:bg-[#c40]"
+          }`}
+        >
+          <FaHome /> Home 
         </Link>
 
         {/* ROOMS */}
@@ -150,6 +161,17 @@ const Sidebar = () => {
             </Link>
           </div>
         )}
+
+                <Link
+          href="/dashboard/activity-landing"
+          className={`flex items-center gap-2 px-3 py-2 rounded-md ${
+            pathname === "/dashboard/activity-landing"
+              ? "bg-[#c40] text-white"
+              : "hover:bg-[#c40]"
+          }`}
+        >
+          <FaHome /> Activity landing 
+        </Link>
 
         {/* ACTIVITIES */}
         <button
