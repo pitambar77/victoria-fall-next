@@ -9,7 +9,7 @@ import { LuUtensils } from "react-icons/lu";
 import Button from "@/components/Button";
 import Link from "next/link";
 
-const ConciergeServices = () => {
+const ConciergeServices = ({title,description}) => {
   const services = [
     {
       title: "Make Yourself at Home",
@@ -58,14 +58,11 @@ const ConciergeServices = () => {
       <div className="max-w-[1140px] mx-auto px-4 text-center">
         {/* Title */}
         <h2 className="hd text-center md:text-[30px] text-[20px] mb-6 font-semibold text-[#2e2c2d] tracking-[3px] max-w-2xl mx-auto uppercase">
-          Creating a Luxury Guest Experience in Victoria Falls
+          {title}
         </h2>
 
         <p className="hd max-w-xl mx-auto md:text-center text-justify text-[#5c5e62] md:mb-16 mb-0">
-          Step into a world of comfort, adventure, and effortless luxury. From
-          curated local experiences and fine dining reservations to wellness
-          treatments and private events, every detail is thoughtfully arranged
-          so you can fully enjoy the magic of Victoria Falls.
+          {description}
         </p>
 
         {/* Services Grid */}

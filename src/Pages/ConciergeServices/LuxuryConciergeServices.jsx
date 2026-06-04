@@ -3,7 +3,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
-
+import { getHomePage } from "../../api/homeApi";
 import CultureEntertainment from "./CultureEntertainment";
 import BeautyWellbeing from "./BeautyWellbeing";
 import PrivateEvents from "./PrivateEvents";
@@ -31,6 +31,13 @@ const LuxuryConciergeServices = () => {
     queryFn: () => getDestinationBySlug(slug).then((res) => res.data),
     staleTime: 1000 * 60 * 10,
   });
+
+  const { data: homeData } = useQuery({
+  queryKey: ["homePage"],
+  queryFn: () =>
+    getHomePage().then((res) => res.data?.[0]),
+  staleTime: 1000 * 60 * 10,
+});
 
   if (isLoading) {
     return (
@@ -67,7 +74,7 @@ const LuxuryConciergeServices = () => {
 
       {destination && <ExperienceServices destinationId={destination._id} />}
 
-      <TestimonialSection />
+      <TestimonialSection  testimonials={homeData?.reviews} />
       <Awards />
       <Customize />
       <JoinClubSection />

@@ -1,5 +1,5 @@
+"use client";
 import React from "react";
-// import Button from "./Button";
 import Banner from "../components/Banner";
 import Awards from "./Awards";
 import Customize from "./Customize";
@@ -10,28 +10,43 @@ import MemoriesSection from "@/Pages/Home/MemoriesSection";
 import ExperiencesSection from "@/Pages/Home/ExperiencesSection";
 import TestimonialSection from "./TestimonialSection";
 import Overview from "@/Pages/Home/Overview";
-// import PositiveImpact from "../pages/Home/PositiveImpact";
+import { getHomePage } from "@/api/homeApi";
+import { useQuery } from "@tanstack/react-query";
 
 const Hero = () => {
+  const { data: homeData, isLoading } = useQuery({
+    queryKey: ["homePage"],
+    queryFn: () => getHomePage().then((res) => res.data?.[0]),
+    staleTime: 1000 * 60 * 10,
+  });
+
+  if (isLoading) {
+    return <div className="py-20 text-center">Loading...</div>;
+  }
+
   return (
     <>
       <Banner
-        imageUrl="/images/victoria-falls.webp"
-        title={"Your Gateway to Victoria Falls"}
-        subtitle={`Premium B&B Accommodation with Personalized Concierge Services`}
+        imageUrl={homeData?.image}
+        title={homeData?.title}
+        subtitle={homeData?.subtitle}
       />
       {/* <PositiveImpact/> */}
-      <Overview />
+      <Overview
+        title={homeData?.overviewinfo?.title}
+        description={homeData?.overviewinfo?.description}
+      />
 
-      <ConciergeServices />
+      <ConciergeServices
+        title={homeData?.servicesoverview?.title}
+        description={homeData?.servicesoverview?.description}
+      />
       <MemoriesSection
-        title={"Discover Your Perfect Luxury Home Away from Home"}
-        description={
-          "Discover a carefully selected collection of unique accommodations in Victoria Falls, chosen for their comfort, character, and prime locations. Whether you are traveling as a couple, with family, or with friends, each property offers the perfect base to explore the wonders of Victoria Falls while enjoying personalized services and unforgettable experiences."
-        }
+        title={homeData?.propertyoverview?.title}
+        description={homeData?.propertyoverview?.description}
       />
       <ExperiencesSection />
-      <TestimonialSection />
+      <TestimonialSection testimonials={homeData?.reviews} />
       <Awards />
       <Customize />
       <JoinClubSection />

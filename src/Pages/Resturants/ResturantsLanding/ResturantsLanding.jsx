@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import Banner from '../../../components/Banner'
 import Overview from '../../../components/Overview'
@@ -6,10 +7,17 @@ import PropertyLocation from '../../Property/PropertyLocation'
 import TestimonialSection from '../../../components/TestimonialSection'
 import Awards from '../../../components/Awards'
 import JoinClubSection from '../../../components/JoinClubSection'
-
+import { getHomePage } from "../../../api/homeApi.js";
+import { useQuery } from "@tanstack/react-query";
 
 const ResturantsLanding = () => {
    
+  const { data: homeData } = useQuery({
+  queryKey: ["homePage"],
+  queryFn: () =>
+    getHomePage().then((res) => res.data?.[0]),
+  staleTime: 1000 * 60 * 10,
+})
   
   return (
    <>
@@ -25,7 +33,9 @@ const ResturantsLanding = () => {
    />
    <ResturantsCard/>
    <PropertyLocation/>
-   <TestimonialSection/>
+  <TestimonialSection
+  testimonials={homeData?.reviews}
+/>
    <Awards/>
    <JoinClubSection/>
    

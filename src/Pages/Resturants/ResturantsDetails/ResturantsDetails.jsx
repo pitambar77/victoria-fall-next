@@ -12,9 +12,16 @@ import Gallery from "../../../components/Gallery";
 import RestaurantsMenu from "./RestaurantsMenu";
 import BookingSection from "./BookingSection";
 import ExperiencesSection from "@/Pages/Home/ExperiencesSection";
-
+import { getHomePage } from "../../../api/homeApi.js";
+import { useQuery } from "@tanstack/react-query";
 
 const ResturantsDetails = ({ restaurant }) => {
+  const { data: homeData } = useQuery({
+    queryKey: ["homePage"],
+    queryFn: () => getHomePage().then((res) => res.data?.[0]),
+    staleTime: 1000 * 60 * 10,
+  });
+
   if (!restaurant) return <p className="p-6">Loading...</p>;
 
   const images =
@@ -51,7 +58,7 @@ const ResturantsDetails = ({ restaurant }) => {
 
       <ExperiencesSection />
 
-      <TestimonialSection />
+      <TestimonialSection testimonials={homeData?.reviews} />
 
       <Awards />
 

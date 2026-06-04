@@ -23,6 +23,8 @@ import JoinClubSection from "@/components/JoinClubSection";
 
 import { getProperty } from "@/api/propertiesApi";
 import PropertiesBookingForm from "@/components/PropertiesBookingForm";
+import { getHomePage } from "../../api/homeApi.js";
+import { useQuery } from "@tanstack/react-query";
 
 export default function PropertyDetailsPage({ slug }) {
   const [property, setProperty] = useState(null);
@@ -43,6 +45,12 @@ export default function PropertyDetailsPage({ slug }) {
 
     loadProperty();
   }, [slug]);
+
+  const { data: homeData } = useQuery({
+    queryKey: ["homePage"],
+    queryFn: () => getHomePage().then((res) => res.data?.[0]),
+    staleTime: 1000 * 60 * 10,
+  });
 
   if (!property) {
     return (
@@ -198,7 +206,7 @@ export default function PropertyDetailsPage({ slug }) {
         <MemoriesSection title={"Explore More Exceptional Homes Nearby"} />
       </div>
 
-      <TestimonialSection />
+      <TestimonialSection testimonials={homeData?.reviews} />
       <Awards />
       <Customize />
       <JoinClubSection />

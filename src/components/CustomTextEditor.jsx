@@ -174,13 +174,13 @@ const CustomTextEditor = ({ value, onChange }) => {
   };
 
   return (
-    <div className="border rounded-lg overflow-hidden">
+    <div className="border border-gray-300 rounded-lg overflow-hidden">
       {/* Toolbar */}
-      <div className="flex flex-wrap gap-2 p-3 border-b bg-gray-50">
+      <div className="flex flex-wrap gap-2 p-3 border-b border-b-gray-300 bg-gray-50">
         <button
           type="button"
           onClick={handleBold}
-          className="border px-3 py-1 rounded font-bold"
+          className="border border-gray-300 px-3 py-1 rounded font-bold"
         >
           B
         </button>
@@ -188,7 +188,7 @@ const CustomTextEditor = ({ value, onChange }) => {
         <button
           type="button"
           onClick={handleItalic}
-          className="border px-3 py-1 rounded italic"
+          className="border border-gray-300 px-3 py-1 rounded italic"
         >
           I
         </button>
@@ -196,7 +196,7 @@ const CustomTextEditor = ({ value, onChange }) => {
         <button
           type="button"
           onClick={handleUnderline}
-          className="border px-3 py-1 rounded underline"
+          className="border border-gray-300 px-3 py-1 rounded underline"
         >
           U
         </button>
@@ -204,7 +204,7 @@ const CustomTextEditor = ({ value, onChange }) => {
         <button
           type="button"
           onClick={handleHighlight}
-          className="border px-3 py-1 rounded"
+          className="border border-gray-300 px-3 py-1 rounded"
         >
           Highlight
         </button>
@@ -212,7 +212,7 @@ const CustomTextEditor = ({ value, onChange }) => {
         <button
           type="button"
           onClick={handleLink}
-          className="border px-3 py-1 rounded text-[#d87029]"
+          className="border border-gray-300 px-3 py-1 rounded text-[#d87029]"
         >
           Link
         </button>
@@ -220,7 +220,7 @@ const CustomTextEditor = ({ value, onChange }) => {
         <button
           type="button"
           onClick={() => handleHeading("H1")}
-          className="border px-3 py-1 rounded font-bold"
+          className="border border-gray-300 px-3 py-1 rounded font-semibold"
         >
           H1
         </button>
@@ -228,7 +228,7 @@ const CustomTextEditor = ({ value, onChange }) => {
         <button
           type="button"
           onClick={() => handleHeading("H2")}
-          className="border px-3 py-1 rounded font-bold"
+          className="border border-gray-300 px-3 py-1 rounded font-semibold"
         >
           H2
         </button>
@@ -236,28 +236,28 @@ const CustomTextEditor = ({ value, onChange }) => {
         <button
           type="button"
           onClick={() => handleHeading("H3")}
-          className="border px-3 py-1 rounded font-bold"
+          className="border border-gray-300 px-3 py-1 rounded font-semibold"
         >
           H3
         </button>
         <button
           type="button"
           onClick={() => handleHeading("H4")}
-          className="border px-3 py-1 rounded font-bold"
+          className="border border-gray-300 px-3 py-1 rounded font-semibold"
         >
           H4
         </button>
         <button
           type="button"
           onClick={() => handleHeading("H5")}
-          className="border px-3 py-1 rounded font-bold"
+          className="border border-gray-300 px-3 py-1 rounded font-semibold"
         >
           H5
         </button>
         <button
           type="button"
           onClick={() => handleHeading("H6")}
-          className="border px-3 py-1 rounded font-bold"
+          className="border border-gray-300 px-3 py-1 rounded font-semibold"
         >
           H6
         </button>
@@ -265,7 +265,7 @@ const CustomTextEditor = ({ value, onChange }) => {
         <button
           type="button"
           onClick={handleBulletList}
-          className="border px-3 py-1 rounded"
+          className="border border-gray-300 px-3 py-1 rounded"
         >
           • List
         </button>
@@ -273,7 +273,7 @@ const CustomTextEditor = ({ value, onChange }) => {
         <button
           type="button"
           onClick={handleNumberList}
-          className="border px-3 py-1 rounded"
+          className="border border-gray-300 px-3 py-1 rounded"
         >
           1. List
         </button>

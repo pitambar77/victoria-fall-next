@@ -50,7 +50,14 @@ import {
   Cigarette,
   PartyPopper,
   Dog,
+   CheckCircle,
+  Calendar,
+  Leaf,
+  Brain,
+  Award
 } from "lucide-react";
+
+
 
 export const amenityIcons = [
   { name: "wifi", icon: Wifi },
@@ -117,4 +124,24 @@ export const amenityIcons = [
   { name: "smoking_allowed", icon: Cigarette },
   { name: "events_allowed", icon: PartyPopper },
   { name: "pets_allowed", icon: Dog },
+  {
+    name: "CheckCircle",
+    icon: CheckCircle,
+  },
+  {
+    name: "Calendar",
+    icon: Calendar,
+  },
+  {
+    name: "Leaf",
+    icon: Leaf,
+  },
+  {
+    name: "Brain",
+    icon: Brain,
+  },
+  {
+    name:"Award",
+    icon:Award
+  }
 ];

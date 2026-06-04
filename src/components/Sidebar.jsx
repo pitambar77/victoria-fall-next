@@ -1,9 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FaHome, FaBed, FaChevronDown, FaChevronUp } from "react-icons/fa";
+import {
+  FaHome,
+  FaBed,
+  FaChevronDown,
+  FaChevronUp,
+  FaSignOutAlt,
+} from "react-icons/fa";
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -12,8 +19,17 @@ const Sidebar = () => {
   const [openRestaurants, setOpenRestaurants] = useState(false);
   const [openActivities, setOpenActivities] = useState(false);
 
+  const router = useRouter();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
+    router.replace("/login");
+  };
+
   /* ✅ ACTIVE CHECK */
-  const isActive = (path) => pathname===path;
+  const isActive = (path) => pathname === path;
 
   /* ✅ AUTO OPEN DROPDOWN */
   useEffect(() => {
@@ -224,6 +240,15 @@ const Sidebar = () => {
           🏗️ Restaurant Booking
         </Link>
       </nav>
+      <div className="mt-auto pt-4 border-t border-[#6b6453]">
+        <button
+          onClick={handleLogout}
+          className="w-full cursor-pointer flex items-center justify-center gap-2 px-3 py-2 rounded-md bg-red-600 hover:bg-red-700 text-white transition"
+        >
+          <FaSignOutAlt />
+          Logout
+        </button>
+      </div>
     </aside>
   );
 };

@@ -20,7 +20,7 @@ export default function IconPicker({ value, onSelect }) {
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="w-full border rounded-md p-2 flex items-center justify-between"
+        className="w-full border border-gray-300 rounded-md p-2 flex items-center justify-between"
       >
         <div className="flex items-center gap-2">
           {SelectedIconComponent && <SelectedIconComponent size={18} />}

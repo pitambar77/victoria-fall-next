@@ -1,22 +1,16 @@
 import React from "react";
 
-const Overview = () => {
+const Overview = ({title,description}) => {
   return (
     <div className="bg-white md:py-20 py-10 px-4">
       <div className="max-w-6xl mx-auto text-center">
         {/* Main Heading and Subheading */}
         <h2 className=" hd md:text-[30px] text-[20px] font-semibold mb-6 text-[#2e2c2d] tracking-[3px] max-w-2xl mx-auto uppercase">
-          Indulge in a Luxury Escape at Victoria Falls
+          {title}
         </h2>
 
         <p className=" hd max-w-xl  mx-auto md:text-center text-justify text-[#5c5e62]   md:mb-4 mb-0 ">
-          Our Victoria Falls Bed & Breakfast and concierge services are designed
-          to make your holiday effortless and unforgettable. From comfortable,
-          pre-approved accommodation to personalized assistance with activities,
-          restaurant reservations, spa treatments, airport transfers, and
-          exclusive local experiences, we ensure every detail of your stay is
-          taken care of—so you can simply relax and enjoy the magic of Victoria
-          Falls.
+          {description}
         </p>
 
         <div className=" hidden max-w-7xl mx-auto px-20 md:flex flex-col md:flex-row justify-between items-center space-y-12 md:space-y-0 md:space-x-8 lg:space-x-12  py-10">
@@ -129,35 +123,8 @@ const Overview = () => {
               Luxury Stays and Private Experiences
             </p>
           </div>
+          
         </div>
-
-        {/* <div className="text-center hd hidden md:block ">
-          <p className="text-[#2e2c2d]  font-semibold  uppercase mb-10">
-            As featured in
-          </p>
-          <div className="flex flex-wrap justify-center items-center space-x-8 md:space-x-16">
-            <img
-              src="https://images.goway.com/dev/featured_in/travel-leisure.svg"
-              alt=""
-              className=" w-[117.5px]"
-            />
-            <img
-              src="https://images.goway.com/dev/featured_in/afar.svg"
-              alt=""
-              className=" w-[65px]"
-            />
-            <img
-              src="https://images.goway.com/dev/featured_in/forbes.svg"
-              alt=""
-              className=" w-[88.5px]"
-            />
-            <img
-              src="https://images.goway.com/dev/featured_in/smithsonian.svg"
-              alt=""
-              className=" w-[145px]"
-            />
-          </div>
-        </div> */}
       </div>
     </div>
   );

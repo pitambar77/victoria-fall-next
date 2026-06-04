@@ -132,7 +132,6 @@
 
 // export default ListingsPage;
 
-
 "use client";
 
 import React, { useEffect, useState, useMemo } from "react";
@@ -140,13 +139,13 @@ import React, { useEffect, useState, useMemo } from "react";
 import PropertyList from "./PropertyList";
 import MapView from "./MapView";
 import FiltersBar from "./FiltersBar";
-
+import { getHomePage } from "../../../api/homeApi.js";
 import TestimonialSection from "@/components/TestimonialSection";
 import Awards from "@/components/Awards";
 
 import { useFilters } from "@/context/FilterContext";
 import { getProperties } from "@/api/propertiesApi";
-
+import { useQuery } from "@tanstack/react-query";
 
 const ListingsPage = () => {
   const { filters } = useFilters();
@@ -193,6 +192,12 @@ const ListingsPage = () => {
     loadProperties();
   }, []);
 
+  const { data: homeData } = useQuery({
+    queryKey: ["homePage"],
+    queryFn: () => getHomePage().then((res) => res.data?.[0]),
+    staleTime: 1000 * 60 * 10,
+  });
+
   /* ================= FILTER + SORT ================= */
   const filteredProperties = useMemo(() => {
     let result = properties.filter((p) => {
@@ -203,10 +208,7 @@ const ListingsPage = () => {
       if (p.bathrooms < filters.bathrooms) return false;
       if (p.guest < filters.guest) return false;
 
-      if (
-        filters.popular.length > 0 &&
-        !filters.popular.includes(p.category)
-      ) {
+      if (filters.popular.length > 0 && !filters.popular.includes(p.category)) {
         return false;
       }
 
@@ -247,36 +249,33 @@ const ListingsPage = () => {
 
   return (
     <>
-    <div className="h-screen max-w-[1140px] mx-auto mt-2 pb-20 px-4 sm:px-6 lg:px-0 flex flex-col">
-      <FiltersBar />
+      <div className="h-screen max-w-[1140px] mx-auto mt-2 pb-20 px-4 sm:px-6 lg:px-0 flex flex-col">
+        <FiltersBar />
 
-      <div className="grid grid-cols-12 h-full py-4">
-        {/* LEFT LIST */}
-        <div className="col-span-7 overflow-y-auto pr-4">
-          <PropertyList
-            properties={filteredProperties}
-            hoveredId={hoveredId}
-            setHoveredId={setHoveredId}
-            selectedId={selectedId}
-          />
-        </div>
+        <div className="grid grid-cols-12 h-full py-4">
+          {/* LEFT LIST */}
+          <div className="col-span-7 overflow-y-auto pr-4">
+            <PropertyList
+              properties={filteredProperties}
+              hoveredId={hoveredId}
+              setHoveredId={setHoveredId}
+              selectedId={selectedId}
+            />
+          </div>
 
-        {/* RIGHT MAP */}
-        <div className="col-span-5">
-          <MapView
-            properties={filteredProperties}
-            hoveredId={hoveredId}
-            setSelectedId={setSelectedId}
-          />
+          {/* RIGHT MAP */}
+          <div className="col-span-5">
+            <MapView
+              properties={filteredProperties}
+              hoveredId={hoveredId}
+              setSelectedId={setSelectedId}
+            />
+          </div>
         </div>
       </div>
-
-    
-    </div>
-      <TestimonialSection />
+      <TestimonialSection testimonials={homeData?.reviews} />
       <Awards />
-      
-      </>
+    </>
   );
 };
 

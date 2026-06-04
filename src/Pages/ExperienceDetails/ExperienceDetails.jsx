@@ -13,6 +13,8 @@ import Awards from "../../components/Awards";
 import Customize from "../../components/Customize";
 import JoinClubSection from "../../components/JoinClubSection";
 import Map from "../../components/Map";
+import { getHomePage } from "../../api/homeApi.js";
+import { useQuery } from "@tanstack/react-query";
 
 const ExperienceDetails = ({slug}) => {
   const [activity, setActivity] = useState(null);
@@ -24,6 +26,13 @@ const ExperienceDetails = ({slug}) => {
       .catch(console.error)
       .finally(() => setLoading(false));
   }, [slug]);
+
+  const { data: homeData } = useQuery({
+  queryKey: ["homePage"],
+  queryFn: () =>
+    getHomePage().then((res) => res.data?.[0]),
+  staleTime: 1000 * 60 * 10,
+});
 
   if (loading) return <p className="text-center p-10">Loading...</p>;
   if (!activity) return <p className="text-center p-10">Activity not found</p>;
@@ -53,7 +62,9 @@ const ExperienceDetails = ({slug}) => {
         currentActivityId={activity._id}
       />
 
-      <TestimonialSection />
+      <TestimonialSection
+  testimonials={homeData?.reviews}
+/>
       <Awards />
       <Customize />
       <JoinClubSection />

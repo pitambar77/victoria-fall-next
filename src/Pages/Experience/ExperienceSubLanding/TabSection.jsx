@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
@@ -7,7 +7,7 @@ import {
   getCategoriesByDestination,
 } from "../../../api/activityApi";
 
-const TabSection = ({ destinationId }) => {
+const TabSection = ({ destinationId, servicesoverview }) => {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("ALL");
 
@@ -42,12 +42,12 @@ const TabSection = ({ destinationId }) => {
         const res = await getActivities();
 
         const destinationActivities = res.data.filter(
-          (a) => a.destination?._id === destinationId
+          (a) => a.destination?._id === destinationId,
         );
 
         setAllActivities(destinationActivities);
         // setActivities(destinationActivities.slice(0, 9)); // default: ALL
-          setActivities(destinationActivities); // default: ALL
+        setActivities(destinationActivities); // default: ALL
       } catch (err) {
         console.error("Error fetching activities:", err);
       } finally {
@@ -68,11 +68,11 @@ const TabSection = ({ destinationId }) => {
       filtered = allActivities.filter((a) =>
         typeof a.category === "string"
           ? a.category === selectedCategory
-          : a.category?._id === selectedCategory
+          : a.category?._id === selectedCategory,
       );
     } else {
       // filtered = allActivities.slice(0, 9); // ✅ 3 rows
-       filtered = allActivities; // ✅ 3 rows
+      filtered = allActivities; // ✅ 3 rows
     }
 
     setActivities(filtered);
@@ -82,12 +82,15 @@ const TabSection = ({ destinationId }) => {
     <div className="bg-amber-50/60 py-10 md:py-20">
       <div className="max-w-[1140px] mx-auto px-4 md:px-0">
         <h2 className="hd text-center text-xl md:text-[30px] mb-6 md:mb-14 font-semibold tracking-[3px] uppercase">
-          Activities
+          {servicesoverview?.title || "Activities"}
         </h2>
 
-        <p className="hd text-center text-gray-600">
-          Choose the category of activities to suit your preferences.
-        </p>
+        <div
+          className="hd text-center text-gray-600 max-w-4xl mx-auto"
+          dangerouslySetInnerHTML={{
+            __html: servicesoverview?.description || "",
+          }}
+        />
 
         {/* ================= CATEGORY TABS ================= */}
         <div className="flex flex-wrap justify-center gap-3 mt-10">
@@ -161,7 +164,3 @@ const TabSection = ({ destinationId }) => {
 };
 
 export default TabSection;
-
-
-
-
