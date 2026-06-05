@@ -251,7 +251,7 @@ const Sidebar = () => {
         </Link>
 
         {/* BOOKINGS */}
-        <Link
+        {/* <Link
           href="/dashboard/activities-booking-list"
           className={`px-3 py-2 rounded ${
             isActive("/dashboard/activities-booking-list")
@@ -282,7 +282,7 @@ const Sidebar = () => {
           }`}
         >
           🏗️ Restaurant Booking
-        </Link>
+        </Link> */}
       </nav>
       <div className="mt-auto pt-4 border-t border-[#6b6453]">
         <button

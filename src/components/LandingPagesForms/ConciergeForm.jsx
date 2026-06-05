@@ -569,7 +569,7 @@ const foodServiceData = foodService.map(
 
       <section className="col-span-2 mt-6">
         <div className="flex justify-between mb-3">
-          <h3 className="text-xl font-semibold">Home Service</h3>
+          <h3 className="text-xl font-semibold">Make Yourself at Home section</h3>
 
           <button
             type="button"

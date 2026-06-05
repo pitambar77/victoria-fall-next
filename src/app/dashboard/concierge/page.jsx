@@ -50,7 +50,7 @@ const Page = () => {
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold">Home Page</h2>
+        <h2 className="text-2xl font-bold"> Concierge Services Page</h2>
 
         <button
           onClick={() => router.push("/dashboard/concierge/create")}
