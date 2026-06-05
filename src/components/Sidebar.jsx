@@ -228,6 +228,28 @@ const Sidebar = () => {
           </div>
         )}
 
+                   <Link
+          href="/dashboard/owner-application-landing"
+          className={`flex items-center gap-2 px-3 py-2 rounded-md ${
+            pathname === "/dashboard/owner-application-landing"
+              ? "bg-[#c40] text-white"
+              : "hover:bg-[#c40]"
+          }`}
+        >
+          <FaHome /> Owner Application 
+        </Link>
+
+                      <Link
+          href="/dashboard/concierge"
+          className={`flex items-center gap-2 px-3 py-2 rounded-md ${
+            pathname === "/dashboard/concierge"
+              ? "bg-[#c40] text-white"
+              : "hover:bg-[#c40]"
+          }`}
+        >
+          <FaHome /> Concierge service
+        </Link>
+
         {/* BOOKINGS */}
         <Link
           href="/dashboard/activities-booking-list"

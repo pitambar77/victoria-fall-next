@@ -19,6 +19,7 @@ import ExperienceServices from "./ExperienceServices";
 import MakeYourself from "./MakeYourself";
 import FoodHall from "./FoodHall";
 import { getDestinationBySlug } from "../../api/destinationApi";
+import { getConciergePage } from "../../api/conciergeApi";
 import BannerSkeleton from "../../components/skeletons/BannerSkeleton";
 import Link from "next/link";
 
@@ -33,11 +34,16 @@ const LuxuryConciergeServices = () => {
   });
 
   const { data: homeData } = useQuery({
-  queryKey: ["homePage"],
-  queryFn: () =>
-    getHomePage().then((res) => res.data?.[0]),
-  staleTime: 1000 * 60 * 10,
-});
+    queryKey: ["homePage"],
+    queryFn: () => getHomePage().then((res) => res.data?.[0]),
+    staleTime: 1000 * 60 * 10,
+  });
+
+  const { data: conciergeData } = useQuery({
+    queryKey: ["concierge"],
+    queryFn: () => getConciergePage().then((res) => res.data?.[0]),
+    staleTime: 1000 * 60 * 10,
+  });
 
   if (isLoading) {
     return (
@@ -50,23 +56,41 @@ const LuxuryConciergeServices = () => {
   return (
     <div>
       <Banner
-        title="Luxury Concierge Services"
-        subtitle="Tailored Victoria Falls Services"
-        imageUrl="/concierge.webp"
+        title={conciergeData?.title}
+        subtitle={conciergeData?.subtitle}
+        imageUrl={conciergeData?.image}
       />
 
       <Overview
-        title="Exclusive African "
-        subtitle="Concierge"
-        description="At Where to Africa, our mission is to transform your holiday into a truly unforgettable experience. We take care of every detail so you don’t have to."
+        title={conciergeData?.overviewinfo?.title}
+        description={conciergeData?.overviewinfo?.description}
       />
 
       <SectionNavigator />
-      <MakeYourself />
-      <CultureEntertainment />
-      <BeautyWellbeing />
-      <PrivateEvents />
-      <FoodHall />
+      <MakeYourself
+        title={conciergeData?.homeServiceSection?.title}
+        services={conciergeData?.homeService || []}
+      />
+
+      <CultureEntertainment
+        title={conciergeData?.culturalServiceSection?.title}
+        services={conciergeData?.culturalService || []}
+      />
+
+      <BeautyWellbeing
+        title={conciergeData?.beautywellnesServiceSection?.title}
+        services={conciergeData?.beautywellnesService || []}
+      />
+
+      <PrivateEvents
+        title={conciergeData?.privateeventServiceSection?.title}
+        services={conciergeData?.privateeventService || []}
+      />
+
+      <FoodHall
+        title={conciergeData?.foodServiceSection?.title}
+        services={conciergeData?.foodService || []}
+      />
 
       <div className="max-w-[1140px] mx-auto pb-10 md:pb-20 px-4 text-center">
         <Button href={"/contact-us"}>Book Your Tailor-Made Services</Button>
@@ -74,7 +98,7 @@ const LuxuryConciergeServices = () => {
 
       {destination && <ExperienceServices destinationId={destination._id} />}
 
-      <TestimonialSection  testimonials={homeData?.reviews} />
+      <TestimonialSection testimonials={homeData?.reviews} />
       <Awards />
       <Customize />
       <JoinClubSection />

@@ -15,9 +15,12 @@ const Overview = ({ title, subtitle, description }) => {
         </h2>
 
         {/* Description */}
-        <p className="hd max-w-2xl mx-auto md:text-center text-justify text-[#5c5e62] ">
-          {description}
-        </p>
+       <div
+  className="hd max-w-2xl mx-auto md:text-center text-justify text-[#5c5e62]"
+  dangerouslySetInnerHTML={{
+    __html: description,
+  }}
+/>
       </div>
     </div>
   );

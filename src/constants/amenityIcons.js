@@ -1,5 +1,3 @@
-
-
 import {
   Wifi,
   Car,
@@ -50,14 +48,15 @@ import {
   Cigarette,
   PartyPopper,
   Dog,
-   CheckCircle,
+  CheckCircle,
   Calendar,
   Leaf,
   Brain,
-  Award
+  Award,
+  Briefcase,
+  Headset,
+  Compass,
 } from "lucide-react";
-
-
 
 export const amenityIcons = [
   { name: "wifi", icon: Wifi },
@@ -141,7 +140,20 @@ export const amenityIcons = [
     icon: Brain,
   },
   {
-    name:"Award",
-    icon:Award
+    name: "Award",
+    icon: Award,
+  },
+  {
+    name: "Briefcase",
+    icon: Briefcase,
+  },
+  {
+    name:"Headset",
+    icon:Headset,
+  },
+  {
+    name:"Compass",
+    icon:Compass,
   }
+
 ];

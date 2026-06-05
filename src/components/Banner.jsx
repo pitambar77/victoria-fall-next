@@ -8,7 +8,7 @@ const Banner = ({ title, subtitle, imageUrl }) => {
     <div className="relative md:h-[90vh] h-[550px]">
       {/* Background Image */}
       <Image
-        src={imageUrl}
+        src={imageUrl || "/resto-banner.webp" }
         alt={title || "Banner Image"}
         fill
         priority
