@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   /* config options here */
-  allowedDevOrigins: ["victoriafallsbnb.com","41.72.148.58"],
+  allowedDevOrigins: ["victoriafallsbnb.com"],
   images: {
     remotePatterns: [
       {
