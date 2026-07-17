@@ -53,6 +53,8 @@ const ActivityForm = () => {
   const router = useRouter();
   const isEdit = Boolean(id);
 
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
   /* ================= DESTINATIONS ================= */
   useEffect(() => {
     getDestinations()
@@ -125,7 +127,7 @@ const ActivityForm = () => {
 
     axios
       .get(
-        `http://victoria-fall-backend.manoramaseoservice.com/api/categories/${formData.destination}`,
+        `${API_URL}/api/categories/${formData.destination}`,
       )
       .then((res) => setCategories(res.data))
       .catch(console.error);
@@ -251,7 +253,7 @@ const ActivityForm = () => {
       setGalleryUploading(true);
 
       const res = await axios.post(
-        `http://victoria-fall-backend.manoramaseoservice.com/api/activities/${id}/gallery-image`,
+        `${API_URL}/api/activities/${id}/gallery-image`,
         data,
       );
 
@@ -268,7 +270,7 @@ const ActivityForm = () => {
   const removeGalleryImage = async (image) => {
     try {
       await axios.put(
-        `http://victoria-fall-backend.manoramaseoservice.com/api/activities/${id}/gallery-image`,
+        `${API_URL}/api/activities/${id}/gallery-image`,
         { image },
       );
 

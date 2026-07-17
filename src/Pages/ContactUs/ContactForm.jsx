@@ -16,6 +16,8 @@ const ContactForm = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
   // Handle input changes
   const handleChange = (e) => {
     setFormData({
@@ -32,7 +34,7 @@ const ContactForm = () => {
 
     try {
       const response = await fetch(
-        "http://victoria-fall-backend.manoramaseoservice.com/api/contactus",
+        `${API_URL}/api/contactus`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

@@ -5,7 +5,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Gallery from "../../components/Gallery";
 
-const BASE_URL = "http://victoria-fall-backend.manoramaseoservice.com";
+// const BASE_URL = "http://victoria-fall-backend.manoramaseoservice.com";
+  const BASE_URL  = process.env.NEXT_PUBLIC_API_URL;
 
 export default function ModalGallery({slug}) {
 
@@ -17,7 +18,7 @@ export default function ModalGallery({slug}) {
     if (!slug) return;
 
     axios
-      .get(`http://victoria-fall-backend.manoramaseoservice.com/api/activities/slug/${slug}`)
+      .get(`${BASE_URL}/api/activities/slug/${slug}`)
       .then((res) => {
         console.log("API Response:", res.data);
         setActivity(res.data);

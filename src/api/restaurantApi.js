@@ -1,10 +1,9 @@
-
-
-
 import axios from "axios";
 
 // const API = "http://localhost:8001/api/restaurants";
-const API = "http://victoria-fall-backend.manoramaseoservice.com/api/restaurants";
+// const API = "http://victoria-fall-backend.manoramaseoservice.com/api/restaurants";
+// const API = "https://bedandbreakfast.victoriafallsbnb.com/api/restaurants";
+const API = `${process.env.NEXT_PUBLIC_API_URL}/api/restaurants`;
 
 export const getRestaurants = () => axios.get(API);
 export const getRestaurantBySlug = (slug) =>

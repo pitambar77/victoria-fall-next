@@ -16,6 +16,8 @@ const BookingSection = ({ restaurantData }) => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
   // Handle input change
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,7 +32,7 @@ const BookingSection = ({ restaurantData }) => {
 
     try {
       const res = await fetch(
-        "http://victoria-fall-backend.manoramaseoservice.com/api/restaubookings",
+        `${API_URL}/api/restaubookings`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

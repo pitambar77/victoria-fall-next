@@ -14,9 +14,11 @@ export default function ModalGallery() {
 
   const { slug } = useParams();
 
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
   useEffect(() => {
     axios
-      .get(`http://victoria-fall-backend.manoramaseoservice.com/api/properties/slug/${slug}`)
+      .get(`${API_URL}/api/properties/slug/${slug}`)
       .then((res) => setRestaurant(res.data))
       .catch(console.error);
   }, [slug]);

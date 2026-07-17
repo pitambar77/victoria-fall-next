@@ -4,7 +4,7 @@ import axios from "axios";
 
 const API_BASE =
   process.env.NEXT_PUBLIC_API_BASE ||
-  "http://victoria-fall-backend.manoramaseoservice.com";
+  "https://bedandbreakfast.victoriafallsbnb.com";
 // process.env.NEXT_PUBLIC_API_BASE || "http://localhost:8001";
 
 const api = axios.create({

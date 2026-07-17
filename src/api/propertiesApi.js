@@ -1,7 +1,9 @@
 import axios from "axios";
 
-const API = "http://victoria-fall-backend.manoramaseoservice.com/api/property";
+// const API = "http://victoria-fall-backend.manoramaseoservice.com/api/property";
 // const API = "http://localhost:8001/api/property";
+// const API = "https://bedandbreakfast.victoriafallsbnb.com/api/property";
+const API = `${process.env.NEXT_PUBLIC_API_URL}/api/property`;
 
 /* =========================
    PROPERTY

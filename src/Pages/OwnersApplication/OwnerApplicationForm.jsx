@@ -1,5 +1,5 @@
 // this is new form accodeing to owner application
-"use client"
+"use client";
 import React, { useState } from "react";
 import axios from "axios";
 import Step1BasicInfo from "./Step1BasicInfo";
@@ -84,6 +84,8 @@ const OwnerApplicationForm = () => {
     activityscImages: [],
   });
 
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
   // Handle text and file changes
   // const handleChange = (e) => {
   //   const { name, type, files, value } = e.target;
@@ -142,20 +144,16 @@ const OwnerApplicationForm = () => {
       // });
 
       Object.entries(formData).forEach(([key, value]) => {
-  if (Array.isArray(value)) {
-    value.forEach((file) => form.append(key, file));
-  } else {
-    form.append(key, value ?? ""); // ✅ ALWAYS append
-  }
-});
+        if (Array.isArray(value)) {
+          value.forEach((file) => form.append(key, file));
+        } else {
+          form.append(key, value ?? ""); // ✅ ALWAYS append
+        }
+      });
 
-      const res = await axios.post(
-        "http://victoria-fall-backend.manoramaseoservice.com/api/owner-applications",
-        form,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-        },
-      );
+      const res = await axios.post(`${API_URL}/api/owner-applications`, form, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
 
       alert(res.data.message || "Application submitted successfully!");
       setStep(1);

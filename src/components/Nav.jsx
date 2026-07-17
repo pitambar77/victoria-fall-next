@@ -158,7 +158,7 @@ const Nav = () => {
           {/* Logo */}
           <Link href="/">
             <img
-              src="https://whereto.africa/wp-content/uploads/2020/06/whereto-logo.png"
+              src="/bed-and-breakfast-logo.webp"
               alt="logo"
               className="w-28"
             />
@@ -243,7 +243,7 @@ const Nav = () => {
           {/* Logo */}
           <Link href="/">
             <img
-              src="https://whereto.africa/wp-content/uploads/2020/06/whereto-logo.png"
+              src="/bed-and-breakfast-logo.webp"
               alt="logo"
               className="w-28"
             />
