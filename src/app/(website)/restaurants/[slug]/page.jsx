@@ -1,5 +1,5 @@
 
-import { getRestaurantBySlug } from "@/api/restaurantApi";
+import { getRestaurantBySlug } from "@/api/restaurantApi.js";
 import ResturantsDetails from "@/Pages/Resturants/ResturantsDetails/ResturantsDetails";
 
 export default async function Page({ params }) {

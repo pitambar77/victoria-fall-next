@@ -144,7 +144,7 @@ import TestimonialSection from "@/components/TestimonialSection";
 import Awards from "@/components/Awards";
 
 import { useFilters } from "@/context/FilterContext";
-import { getProperties } from "@/api/propertiesApi";
+import { getProperties } from "@/api/propertiesApi.js";
 import { useQuery } from "@tanstack/react-query";
 
 const ListingsPage = () => {

@@ -8,9 +8,9 @@ import WhyBookWithUs from "../ExperienceLanding/WhyBookWithUs";
 import TestimonialSection from "../../../components/TestimonialSection";
 import Awards from "../../../components/Awards";
 import { getHomePage } from "../../../api/homeApi.js";
-import { getDestinationBySlug } from "../../../api/destinationApi";
+import { getDestinationBySlug } from "../../../api/destinationApi.js";
 import { useQuery } from "@tanstack/react-query";
-import { getActivityLanding } from "../../../api/activityLandingApi";
+import { getActivityLanding } from "../../../api/activityLandingApi.js";
 
 const ExperienceSubLanding = ({ fixedSlug, destinationSlug }) => {
   // ✅ priority: fixedSlug (for victoria-falls-experiences) → URL slug

@@ -3,7 +3,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
-import { getHomePage } from "../../api/homeApi";
+import { getHomePage } from "../../api/homeApi.js";
 import CultureEntertainment from "./CultureEntertainment";
 import BeautyWellbeing from "./BeautyWellbeing";
 import PrivateEvents from "./PrivateEvents";
@@ -18,8 +18,8 @@ import Customize from "../../components/Customize";
 import ExperienceServices from "./ExperienceServices";
 import MakeYourself from "./MakeYourself";
 import FoodHall from "./FoodHall";
-import { getDestinationBySlug } from "../../api/destinationApi";
-import { getConciergePage } from "../../api/conciergeApi";
+import { getDestinationBySlug } from "../../api/destinationApi.js";
+import { getConciergePage } from "../../api/conciergeApi.js";
 import BannerSkeleton from "../../components/skeletons/BannerSkeleton";
 import Link from "next/link";
 

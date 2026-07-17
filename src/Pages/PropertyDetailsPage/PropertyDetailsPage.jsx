@@ -21,7 +21,7 @@ import Awards from "@/components/Awards";
 import Customize from "@/components/Customize";
 import JoinClubSection from "@/components/JoinClubSection";
 
-import { getProperty } from "@/api/propertiesApi";
+import { getProperty } from "@/api/propertiesApi.js";
 import PropertiesBookingForm from "@/components/PropertiesBookingForm";
 import { getHomePage } from "../../api/homeApi.js";
 import { useQuery } from "@tanstack/react-query";
@@ -61,93 +61,6 @@ export default function PropertyDetailsPage({ slug }) {
   }
 
   return (
-    // <div>
-    //   {/* Back Button */}
-    //   <div className="max-w-[1200px] mx-auto px-4 py-6">
-    //     <Link
-    //       href="/properties"
-    //       className="flex items-center gap-2 hover:underline text-[#ab8c51]"
-    //     >
-    //       <GoArrowLeft />
-    //       <span>See all Properties</span>
-    //     </Link>
-    //   </div>
-
-    //   {/* Gallery */}
-    //   <div className="max-w-[1200px] mx-auto px-4">
-    //     <Gallery property={property} />
-    //   </div>
-
-    //   {/* Sticky Tabs */}
-    //   <PropertyTabs />
-
-    //   {/* Content */}
-    //   <div className="max-w-[1200px] mx-auto px-4 py-6">
-    //     <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10">
-
-    //       {/* LEFT CONTENT */}
-    //       <div className="space-y-10">
-    //         <section id="overview">
-    //           <PropertyHeader property={property} />
-    //         </section>
-
-    //         <Highlights property={property} />
-    //         <PropertyStats property={property} />
-
-    //         <section id="amenities">
-    //           <Amenities property={property} />
-    //         </section>
-
-    //         <section id="location">
-    //           <MapSection property={property} />
-    //         </section>
-
-    //         <RoomsBeds property={property} />
-    //         <SpacesSection property={property} />
-
-    //         <section id="policies">
-    //           <HouseRules property={property} />
-    //         </section>
-    //       </div>
-
-    //       {/* RIGHT SIDEBAR */}
-    //       <BookingSidebar
-    //         property={property}
-    //         openBooking={() => setShowBookingForm(true)}
-    //       />
-    //     </div>
-    //   </div>
-
-    //   {/* Explore Section */}
-    //   <div className="bg-[#f9f4e8] mt-16">
-    //     <MemoriesSection title="Explore More Exceptional Homes Nearby" />
-    //   </div>
-
-    //   <TestimonialSection />
-    //   <Awards />
-    //   <Customize />
-    //   <JoinClubSection />
-
-    //   {/* ================= MODAL ================= */}
-    //   {showBookingForm && (
-    //     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-    //       <div className="bg-white rounded-lg max-w-[800px] w-full relative p-6 max-h-[90vh] overflow-y-auto">
-
-    //         {/* Close */}
-    //         <button
-    //           onClick={() => setShowBookingForm(false)}
-    //           className="absolute top-4 right-4 text-gray-500 hover:text-black text-xl"
-    //         >
-    //           ✕
-    //         </button>
-
-    //         <PropertiesBookingForm
-    //           propertyName={property.overview?.title}
-    //         />
-    //       </div>
-    //     </div>
-    //   )}
-    // </div>
     <>
       <div className=" hd max-w-[1200px] mx-auto px-4 py-6">
         <div className=" flex">

@@ -5,7 +5,7 @@ import Link from "next/link";
 import {
   getActivities,
   getCategoriesByDestination,
-} from "../../../api/activityApi";
+} from "../../../api/activityApi.js";
 
 const TabSection = ({ destinationId, servicesoverview }) => {
   const [categories, setCategories] = useState([]);

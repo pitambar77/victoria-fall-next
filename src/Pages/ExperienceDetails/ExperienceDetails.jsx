@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from "react";
-import { getActivityBySlug } from "../../api/activityApi";
+import { getActivityBySlug } from "../../api/activityApi.js";
 
 import Banner from "../../components/Banner";
 import Overview from "../../components/Overview";
