@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react";
-import { createCategory, updateCategory } from "../../api/categoryApi";
-import { getDestinations } from "../../api/destinationApi";
+import { createCategory, updateCategory } from "../../api/categoryApi.js";
+import { getDestinations } from "../../api/destinationApi.js";
 
 const CategoryForm = ({ selectedCategory, onSave }) => {
   const [destinations, setDestinations] = useState([]);

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import {
   createDestination,
   updateDestination,
-} from "../../api/destinationApi";
+} from "../../api/destinationApi.js";
 
 const DestinationForm = ({ selectedDestination, onSave }) => {
   const [formData, setFormData] = useState({

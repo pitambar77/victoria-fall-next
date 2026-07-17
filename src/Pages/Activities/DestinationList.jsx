@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import {
   getDestinations,
   deleteDestination,
-} from "../../api/destinationApi";
+} from "../../api/destinationApi.js";
 import DestinationForm from "./DestinationForm";
 import Link from "next/link";
 

@@ -359,7 +359,7 @@ import {
   addAdditionalAmenity,
   updateAdditionalAmenity,
   deleteAdditionalAmenity,
-} from "../../api/propertiesApi";
+} from "../../api/propertiesApi.js";
 
 export default function AmenitiesSection({ property, setProperty }) {
   const [basicName, setBasicName] = useState("");

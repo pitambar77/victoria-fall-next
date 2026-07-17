@@ -33,7 +33,7 @@ const PropertiesBookingForm = ({ propertyName }) => {
 
     try {
       const response = await fetch(
-        "https://victoria-fall-backend-production.up.railway.app//bookings",
+        `${process.env.NEXT_PUBLIC_API_URL}/api/bookings`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

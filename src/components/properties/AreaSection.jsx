@@ -303,7 +303,7 @@ import {
   addActivity,
   updateActivity,
   deleteActivity,
-} from "../../api/propertiesApi";
+} from "../../api/propertiesApi.js";
 
 export default function AreaSection({ property, setProperty }) {
   const [locationname, setLocationName] = useState(

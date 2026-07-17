@@ -70,7 +70,7 @@ const ActivityExperienceEnquiryForm = ({ activityData }) => {
 
     try {
       const response = await fetch(
-        "https://victoria-fall-backend-production.up.railway.app/api/actbookings",
+       `${process.env.NEXT_PUBLIC_API_URL}/api/actbookings`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import {
   getCategoriesByDestination,
   deleteCategory,
-} from "../../api/categoryApi";
-import { getDestinations } from "../../api/destinationApi";
+} from "../../api/categoryApi.js";
+import { getDestinations } from "../../api/destinationApi.js";
 import CategoryForm from "./CategoryForm";
 
 const CategoryList = () => {

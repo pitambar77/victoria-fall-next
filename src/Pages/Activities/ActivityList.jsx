@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState } from "react";
-import { getActivities, deleteActivity } from "../../api/activityApi";
+import { getActivities, deleteActivity } from "../../api/activityApi.js";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 

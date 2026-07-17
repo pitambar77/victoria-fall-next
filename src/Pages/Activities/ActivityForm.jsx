@@ -5,8 +5,8 @@ import {
   getActivity,
   updateActivity,
   createActivity,
-} from "../../api/activityApi";
-import { getDestinations } from "../../api/destinationApi";
+} from "../../api/activityApi.js";
+import { getDestinations } from "../../api/destinationApi.js";
 import axios from "axios";
 import { useRouter, useParams } from "next/navigation";
 
