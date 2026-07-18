@@ -12,6 +12,7 @@ import TestimonialSection from "./TestimonialSection";
 import Overview from "@/Pages/Home/Overview";
 import { getHomePage } from "@/api/homeApi";
 import { useQuery } from "@tanstack/react-query";
+import BannerSkeleton from "./skeletons/BannerSkeleton";
 
 const Hero = () => {
   const { data: homeData, isLoading } = useQuery({
@@ -21,7 +22,7 @@ const Hero = () => {
   });
 
   if (isLoading) {
-    return <div className="py-20 text-center">Loading...</div>;
+    return <BannerSkeleton/>;
   }
 
   return (

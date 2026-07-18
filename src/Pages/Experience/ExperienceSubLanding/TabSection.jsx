@@ -6,6 +6,7 @@ import {
   getActivities,
   getCategoriesByDestination,
 } from "../../../api/activityApi.js";
+import TabSectionSkeleton from "@/components/skeletons/TabSectionSkeleton.jsx";
 
 const TabSection = ({ destinationId, servicesoverview }) => {
   const [categories, setCategories] = useState([]);
@@ -77,6 +78,10 @@ const TabSection = ({ destinationId, servicesoverview }) => {
 
     setActivities(filtered);
   }, [selectedCategory, allActivities]);
+
+   if (loading) {
+    return <TabSectionSkeleton />;
+  }
 
   return (
     <div className="bg-amber-50/60 py-10 md:py-20">

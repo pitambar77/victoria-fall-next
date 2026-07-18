@@ -11,6 +11,7 @@ import { getHomePage } from "../../../api/homeApi.js";
 import { getDestinationBySlug } from "../../../api/destinationApi.js";
 import { useQuery } from "@tanstack/react-query";
 import { getActivityLanding } from "../../../api/activityLandingApi.js";
+import BannerSkeleton from "@/components/skeletons/BannerSkeleton";
 
 const ExperienceSubLanding = ({ fixedSlug, destinationSlug }) => {
   // ✅ priority: fixedSlug (for victoria-falls-experiences) → URL slug
@@ -45,13 +46,22 @@ const ExperienceSubLanding = ({ fixedSlug, destinationSlug }) => {
   });
 
   const { data: homeData } = useQuery({
-  queryKey: ["homePage"],
-  queryFn: () =>
-    getHomePage().then((res) => res.data?.[0]),
-  staleTime: 1000 * 60 * 10,
-});
+    queryKey: ["homePage"],
+    queryFn: () => getHomePage().then((res) => res.data?.[0]),
+    staleTime: 1000 * 60 * 10,
+  });
 
-  if (!destination) return;
+  if (isLoading) {
+    return <BannerSkeleton />;
+  }
+
+  if (!destination) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p>Destination not found.</p>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -92,9 +102,7 @@ const ExperienceSubLanding = ({ fixedSlug, destinationSlug }) => {
         whybook={activityLanding?.whybook}
       />
       {/* <PopularExperiences /> */}
-     <TestimonialSection
-  testimonials={homeData?.reviews}
-/>
+      <TestimonialSection testimonials={homeData?.reviews} />
       <Awards />
     </>
   );

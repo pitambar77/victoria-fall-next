@@ -146,6 +146,7 @@ import Awards from "@/components/Awards";
 import { useFilters } from "@/context/FilterContext";
 import { getProperties } from "@/api/propertiesApi.js";
 import { useQuery } from "@tanstack/react-query";
+import ListingsPageSkeleton from "@/components/skeletons/ListingsPageSkeleton";
 
 const ListingsPage = () => {
   const { filters } = useFilters();
@@ -240,11 +241,7 @@ const ListingsPage = () => {
   /* ================= UI ================= */
 
   if (loading) {
-    return (
-      <div className="h-screen flex items-center justify-center">
-        Loading properties...
-      </div>
-    );
+    return <ListingsPageSkeleton />;
   }
 
   return (

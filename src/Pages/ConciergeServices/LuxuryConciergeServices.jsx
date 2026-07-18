@@ -21,7 +21,6 @@ import FoodHall from "./FoodHall";
 import { getDestinationBySlug } from "../../api/destinationApi.js";
 import { getConciergePage } from "../../api/conciergeApi.js";
 import BannerSkeleton from "../../components/skeletons/BannerSkeleton";
-import Link from "next/link";
 
 const LuxuryConciergeServices = () => {
   const router = useRouter();
@@ -46,11 +45,7 @@ const LuxuryConciergeServices = () => {
   });
 
   if (isLoading) {
-    return (
-      <div className="h-[80vh] flex items-center justify-center">
-        <BannerSkeleton />
-      </div>
-    );
+    return <BannerSkeleton />;
   }
 
   return (

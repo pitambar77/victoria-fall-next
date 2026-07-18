@@ -8,6 +8,7 @@ import Overview from "./Overview";
 import Services from "./Services";
 import OwnerApplicationForm from "./OwnerApplicationForm";
 import { getOwnersApplication } from "../../api/ownersApplicationApi.js";
+import BannerSkeleton from "@/components/skeletons/BannerSkeleton";
 
 const OwnersApplication = () => {
   const { data, isLoading } = useQuery({
@@ -16,7 +17,7 @@ const OwnersApplication = () => {
       getOwnersApplication().then((res) => res.data?.[0]),
   });
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <BannerSkeleton/>;
 
   return (
     <>
